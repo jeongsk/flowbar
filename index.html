@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowbar - Context-Aware Menu Bar for macOS</title>
+    <meta name="description" content="Flowbar automatically shows the right menu bar icons for what you're doing. Focus on your work, not on managing your Mac.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0071e3;
+            --text: #1d1d1f;
+            --text-light: #86868b;
+            --bg: #ffffff;
+            --bg-secondary: #f5f5f7;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--gradient);
+            border-radius: 8px;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            margin-left: 32px;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 80px 20px 60px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--bg-secondary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 24px;
+            color: var(--text-light);
+            margin-bottom: 40px;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--text);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--bg-secondary);
+            color: var(--text);
+        }
+
+        .btn-secondary:hover {
+            background: #e8e8ed;
+        }
+
+        /* Mockup */
+        .mockup {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .mockup-img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.15);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* Problems */
+        .problems {
+            background: var(--bg-secondary);
+            padding: 100px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .section-title p {
+            font-size: 20px;
+            color: var(--text-light);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .problem-icon {
+            width: 48px;
+            height: 48px;
+            background: #fee2e2;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .problem-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .problem-card p {
+            color: var(--text-light);
+        }
+
+        /* Solution */
+        .solution {
+            padding: 100px 20px;
+        }
+
+        .solution-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .solution-text h2 {
+            font-size: 40px;
+            margin-bottom: 24px;
+        }
+
+        .solution-text p {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 32px;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 17px;
+        }
+
+        .feature-list .check {
+            width: 24px;
+            height: 24px;
+            background: #d1fae5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #059669;
+            flex-shrink: 0;
+        }
+
+        .solution-visual {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            padding: 40px;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--text-light);
+        }
+
+        /* Modes */
+        .modes {
+            background: var(--bg-secondary);
+            padding: 100px 20px;
+        }
+
+        .mode-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .mode-card {
+            background: white;
+            padding: 32px;
+            border-radius: 16px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .mode-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .mode-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--gradient);
+            border-radius: 16px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .mode-card h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .mode-card p {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 100px 20px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            border: 2px solid var(--bg-secondary);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            background: linear-gradient(to bottom, #f0f7ff, white);
+        }
+
+        .pricing-card h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .price {
+            font-size: 48px;
+            font-weight: 700;
+            margin: 24px 0;
+        }
+
+        .price span {
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--text-light);
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin: 24px 0;
+        }
+
+        .pricing-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--bg-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        /* CTA */
+        .cta-section {
+            background: var(--text);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            opacity: 0.8;
+            margin-bottom: 32px;
+        }
+
+        .cta-section .btn-primary {
+            background: white;
+            color: var(--text);
+        }
+
+        /* Email Form */
+        .email-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .email-form input[type="email"] {
+            width: 100%;
+            padding: 16px 20px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        .email-form button {
+            width: 100%;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        footer a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+
+            .solution-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .solution-visual {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-icon"></div>
+            Flowbar
+        </div>
+        <nav>
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#download">Download</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <span class="badge">Coming Soon for macOS</span>
+        <h1>Your menu bar,<br>finally smart</h1>
+        <p>Flowbar shows the right icons for what you're doing. Switch contexts with one click. Focus without distractions.</p>
+        <div class="cta-group">
+            <a href="#notify" class="btn btn-primary">Get Early Access</a>
+            <a href="#features" class="btn btn-secondary">See How It Works</a>
+        </div>
+    </section>
+
+    <div class="mockup">
+        <div class="mockup-img">
+            [Flowbar App Screenshot - Menu bar with context modes]
+        </div>
+    </div>
+
+    <section class="problems">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sound familiar?</h2>
+                <p>Your Mac's menu bar is working against you</p>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">😫</div>
+                    <h3>Too many icons</h3>
+                    <p>15+ menu bar apps fighting for space. Icons disappear behind the notch. You can never find what you need.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">😤</div>
+                    <h3>Constant interruptions</h3>
+                    <p>Popups steal your keyboard focus. Notifications break your concentration. "Just let me work!"</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">😐</div>
+                    <h3>Manual everything</h3>
+                    <p>Every time you switch tasks, you manually rearrange windows, close apps, open others. It's exhausting.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="solution" id="features">
+        <div class="container">
+            <div class="solution-content">
+                <div class="solution-text">
+                    <h2>One mode for each context</h2>
+                    <p>Create custom modes for different workflows. Flowbar automatically shows only what you need, when you need it.</p>
+                    <ul class="feature-list">
+                        <li>
+                            <span class="check">✓</span>
+                            <strong>Smart Menu Bar</strong> - Show different icons for coding, designing, meetings
+                        </li>
+                        <li>
+                            <span class="check">✓</span>
+                            <strong>Focus Guard</strong> - Block popups from stealing keyboard focus
+                        </li>
+                        <li>
+                            <span class="check">✓</span>
+                            <strong>Workflow Memory</strong> - Save app layouts and restore with one click
+                        </li>
+                        <li>
+                            <span class="check">✓</span>
+                            <strong>Mini Launcher</strong> - Quick access to apps for your current task
+                        </li>
+                    </ul>
+                </div>
+                <div class="solution-visual">
+                    [Animation: Menu bar switching between modes]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="modes">
+        <div class="container">
+            <div class="section-title">
+                <h2>Built for how you work</h2>
+                <p>Pre-made modes ready to use, or create your own</p>
+            </div>
+            <div class="mode-grid">
+                <div class="mode-card">
+                    <div class="mode-icon">💻</div>
+                    <h3>Coding</h3>
+                    <p>Git status, CI monitor, CPU usage, timer</p>
+                </div>
+                <div class="mode-card">
+                    <div class="mode-icon">🎨</div>
+                    <h3>Design</h3>
+                    <p>Color picker, asset folder, guides</p>
+                </div>
+                <div class="mode-card">
+                    <div class="mode-icon">📹</div>
+                    <h3>Meeting</h3>
+                    <p>Calendar, notes, microphone control</p>
+                </div>
+                <div class="mode-card">
+                    <div class="mode-icon">🎯</div>
+                    <h3>Focus</h3>
+                    <p>Just a timer. Everything else hidden.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Simple pricing</h2>
+                <p>Pay once, own forever. No subscription.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Free</h3>
+                    <div class="price">$0</div>
+                    <ul class="pricing-features">
+                        <li>✓ 3 custom modes</li>
+                        <li>✓ Manual mode switching</li>
+                        <li>✓ Basic menu bar grouping</li>
+                        <li>✗ Focus Guard</li>
+                        <li>✗ Workflow memory</li>
+                        <li>✗ Mini launcher</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Download Free</a>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Pro</h3>
+                    <div class="price">$19 <span>one-time</span></div>
+                    <ul class="pricing-features">
+                        <li>✓ Unlimited modes</li>
+                        <li>✓ Keyboard shortcuts</li>
+                        <li>✓ Focus Guard</li>
+                        <li>✓ Workflow memory</li>
+                        <li>✓ Mini launcher</li>
+                        <li>✓ Free updates forever</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Pre-order $19</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="notify">
+        <h2>Be the first to try Flowbar</h2>
+        <p>Join 100+ people waiting for early access. We'll email you when it's ready.</p>
+        <form class="email-form" action="#" method="POST">
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <button type="submit" class="btn btn-primary">Notify Me</button>
+        </form>
+        <p style="margin-top: 16px; font-size: 14px; opacity: 0.7;">No spam. Unsubscribe anytime.</p>
+    </section>
+
+    <footer>
+        <p>Made with ❤️ for macOS users</p>
+        <p style="margin-top: 8px;">
+            <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Contact</a>
+        </p>
+    </footer>
+</body>
+</html>
