@@ -22,12 +22,12 @@ case "$BUMP_TYPE" in
         ;;
 esac
 
-echo "Bumping $BUMP_TYPE version..."
+echo "Bumping $BUMP_TYPE version..." >&2
 
 # Get current version from git tags
 CURRENT_VERSION=$(git describe --tags --abbrev=0 2>/dev/null || echo "0.0.0")
 
-echo "Current version: $CURRENT_VERSION"
+echo "Current version: $CURRENT_VERSION" >&2
 
 # Parse version components
 IFS='.' read -r MAJOR MINOR PATCH <<< "$CURRENT_VERSION"
@@ -56,11 +56,11 @@ esac
 # Construct new version
 NEW_VERSION="$MAJOR.$MINOR.$PATCH"
 
-echo "New version: $NEW_VERSION"
+echo "New version: $NEW_VERSION" >&2
 
 # Update version in Xcode project if needed
 # For now, we'll rely on build arguments
 # In the future, this could update Info.plist or project.pbxproj
 
-# Output new version for GitHub Actions
+# Output new version for GitHub Actions (stdout only)
 echo "$NEW_VERSION"
