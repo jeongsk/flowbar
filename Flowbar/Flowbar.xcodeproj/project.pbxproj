@@ -7,66 +7,66 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A001 /* FlowbarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A011; };
-		1A002 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A012; };
-		1A003 /* FlowbarAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A013; };
-		1A004 /* AppAssignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A014; };
-		1A005 /* DNDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A015; };
-		1A006 /* IconAssignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A016; };
-		1A007 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A017; };
-		1A008 /* OnboardingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A018; };
-		1A009 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A019; };
-		1A010 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A020; };
-		1A021 /* FeedbackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A022; };
-		1A023 /* OptimizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A024; };
-		1A025 /* FocusGuardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A026; };
-		1A027 /* FocusGuardStatusOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A028; };
-		1A029 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A030; };
-		1A031 /* LauncherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A032; };
-		1A033 /* MenuBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A034; };
-		1A035 /* ModeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A036; };
-		1A037 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A038; };
-		1A039 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A040; };
-		1A041 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A042; };
-		1A043 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A044; };
-		1A045 /* KeyboardShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A046; };
-		1A047 /* ModeSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A048; };
-		1A049 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A050; };
+		AA0001 /* FlowbarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0101; };
+		AA0002 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0102; };
+		AA0003 /* FlowbarAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0103; };
+		AA0004 /* AppAssignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0104; };
+		AA0005 /* DNDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0105; };
+		AA0006 /* IconAssignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0106; };
+		AA0007 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0107; };
+		AA0008 /* OnboardingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0108; };
+		AA0009 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0109; };
+		AA0010 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0110; };
+		AA0011 /* FeedbackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0111; };
+		AA0012 /* OptimizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0112; };
+		AA0013 /* FocusGuardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0113; };
+		AA0014 /* FocusGuardStatusOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0114; };
+		AA0015 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0115; };
+		AA0016 /* LauncherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0116; };
+		AA0017 /* MenuBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0117; };
+		AA0018 /* ModeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0118; };
+		AA0019 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0119; };
+		AA0020 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0120; };
+		AA0021 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0121; };
+		AA0022 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0122; };
+		AA0023 /* KeyboardShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0123; };
+		AA0024 /* ModeSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0124; };
+		AA0025 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA0125; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1A060 /* Flowbar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flowbar.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1A011 /* FlowbarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowbarApp.swift; sourceTree = "<group>"; };
-		1A012 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1A013 /* FlowbarAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowbarAnimations.swift; sourceTree = "<group>"; };
-		1A014 /* AppAssignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssignment.swift; sourceTree = "<group>"; };
-		1A015 /* DNDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNDApp.swift; sourceTree = "<group>"; };
-		1A016 /* IconAssignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconAssignment.swift; sourceTree = "<group>"; };
-		1A017 /* Mode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
-		1A018 /* OnboardingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingState.swift; sourceTree = "<group>"; };
-		1A019 /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
-		1A020 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
-		1A022 /* FeedbackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackManager.swift; sourceTree = "<group>"; };
-		1A024 /* OptimizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptimizationManager.swift; sourceTree = "<group>"; };
-		1A026 /* FocusGuardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusGuardManager.swift; sourceTree = "<group>"; };
-		1A028 /* FocusGuardStatusOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusGuardStatusOverlay.swift; sourceTree = "<group>"; };
-		1A030 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
-		1A032 /* LauncherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauncherManager.swift; sourceTree = "<group>"; };
-		1A034 /* MenuBarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarManager.swift; sourceTree = "<group>"; };
-		1A036 /* ModeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeManager.swift; sourceTree = "<group>"; };
-		1A038 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
-		1A040 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		1A042 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		1A044 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		1A046 /* KeyboardShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardShortcut.swift; sourceTree = "<group>"; };
-		1A048 /* ModeSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSwitcherView.swift; sourceTree = "<group>"; };
-		1A050 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1A061 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1A062 /* Flowbar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flowbar.entitlements; sourceTree = "<group>"; };
+		AA0200 /* Flowbar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flowbar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA0101 /* FlowbarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowbarApp.swift; sourceTree = "<group>"; };
+		AA0102 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AA0103 /* FlowbarAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowbarAnimations.swift; sourceTree = "<group>"; };
+		AA0104 /* AppAssignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssignment.swift; sourceTree = "<group>"; };
+		AA0105 /* DNDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNDApp.swift; sourceTree = "<group>"; };
+		AA0106 /* IconAssignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconAssignment.swift; sourceTree = "<group>"; };
+		AA0107 /* Mode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
+		AA0108 /* OnboardingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingState.swift; sourceTree = "<group>"; };
+		AA0109 /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
+		AA0110 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		AA0111 /* FeedbackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackManager.swift; sourceTree = "<group>"; };
+		AA0112 /* OptimizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptimizationManager.swift; sourceTree = "<group>"; };
+		AA0113 /* FocusGuardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusGuardManager.swift; sourceTree = "<group>"; };
+		AA0114 /* FocusGuardStatusOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusGuardStatusOverlay.swift; sourceTree = "<group>"; };
+		AA0115 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
+		AA0116 /* LauncherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauncherManager.swift; sourceTree = "<group>"; };
+		AA0117 /* MenuBarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarManager.swift; sourceTree = "<group>"; };
+		AA0118 /* ModeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeManager.swift; sourceTree = "<group>"; };
+		AA0119 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
+		AA0120 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		AA0121 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		AA0122 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		AA0123 /* KeyboardShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardShortcut.swift; sourceTree = "<group>"; };
+		AA0124 /* ModeSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSwitcherView.swift; sourceTree = "<group>"; };
+		AA0125 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA0126 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA0127 /* Flowbar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flowbar.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1A070 /* Frameworks */ = {
+		AA0300 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -76,196 +76,196 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1A080 = {
+		AA0400 /* Project */ = {
 			isa = PBXGroup;
 			children = (
-				1A081 /* Flowbar */,
-				1A082 /* Products */,
+				AA0401 /* Flowbar */,
+				AA0402 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		1A081 /* Flowbar */ = {
+		AA0401 /* Flowbar */ = {
 			isa = PBXGroup;
 			children = (
-				1A090 /* App */,
-				1A091 /* Core */,
-				1A092 /* Features */,
-				1A093 /* Shared */,
-				1A094 /* Resources */,
-				1A061 /* Info.plist */,
-				1A062 /* Flowbar.entitlements */,
+				AA0410 /* App */,
+				AA0411 /* Core */,
+				AA0412 /* Features */,
+				AA0413 /* Shared */,
+				AA0414 /* Resources */,
+				AA0126 /* Info.plist */,
+				AA0127 /* Flowbar.entitlements */,
 			);
 			path = Flowbar;
 			sourceTree = "<group>";
 		};
-		1A082 /* Products */ = {
+		AA0402 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1A060 /* Flowbar.app */,
+				AA0200 /* Flowbar.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1A090 /* App */ = {
+		AA0410 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				1A011 /* FlowbarApp.swift */,
-				1A012 /* AppDelegate.swift */,
+				AA0101 /* FlowbarApp.swift */,
+				AA0102 /* AppDelegate.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
 		};
-		1A091 /* Core */ = {
+		AA0411 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				1A0A0 /* Animations */,
-				1A0A1 /* Models */,
-				1A0A2 /* Persistence */,
-				1A0A3 /* Utils */,
+				AA0420 /* Animations */,
+				AA0421 /* Models */,
+				AA0422 /* Persistence */,
+				AA0423 /* Utils */,
 			);
 			path = Core;
 			sourceTree = "<group>";
 		};
-		1A0A0 /* Animations */ = {
+		AA0420 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
-				1A013 /* FlowbarAnimations.swift */,
+				AA0103 /* FlowbarAnimations.swift */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
 		};
-		1A0A1 /* Models */ = {
+		AA0421 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1A014 /* AppAssignment.swift */,
-				1A015 /* DNDApp.swift */,
-				1A016 /* IconAssignment.swift */,
-				1A017 /* Mode.swift */,
-				1A018 /* OnboardingState.swift */,
-				1A019 /* Preference.swift */,
+				AA0104 /* AppAssignment.swift */,
+				AA0105 /* DNDApp.swift */,
+				AA0106 /* IconAssignment.swift */,
+				AA0107 /* Mode.swift */,
+				AA0108 /* OnboardingState.swift */,
+				AA0109 /* Preference.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		1A0A2 /* Persistence */ = {
+		AA0422 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
-				1A020 /* DataController.swift */,
+				AA0110 /* DataController.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
 		};
-		1A0A3 /* Utils */ = {
+		AA0423 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				1A022 /* FeedbackManager.swift */,
-				1A024 /* OptimizationManager.swift */,
+				AA0111 /* FeedbackManager.swift */,
+				AA0112 /* OptimizationManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		1A092 /* Features */ = {
+		AA0412 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				1A0B0 /* FocusGuard */,
-				1A0B1 /* Help */,
-				1A0B2 /* Launcher */,
-				1A0B3 /* MenuBar */,
-				1A0B4 /* ModeSwitcher */,
-				1A0B5 /* Onboarding */,
-				1A0B6 /* Settings */,
+				AA0430 /* FocusGuard */,
+				AA0431 /* Help */,
+				AA0432 /* Launcher */,
+				AA0433 /* MenuBar */,
+				AA0434 /* ModeSwitcher */,
+				AA0435 /* Onboarding */,
+				AA0436 /* Settings */,
 			);
 			path = Features;
 			sourceTree = "<group>";
 		};
-		1A0B0 /* FocusGuard */ = {
+		AA0430 /* FocusGuard */ = {
 			isa = PBXGroup;
 			children = (
-				1A026 /* FocusGuardManager.swift */,
-				1A028 /* FocusGuardStatusOverlay.swift */,
+				AA0113 /* FocusGuardManager.swift */,
+				AA0114 /* FocusGuardStatusOverlay.swift */,
 			);
 			path = FocusGuard;
 			sourceTree = "<group>";
 		};
-		1A0B1 /* Help */ = {
+		AA0431 /* Help */ = {
 			isa = PBXGroup;
 			children = (
-				1A030 /* HelpView.swift */,
+				AA0115 /* HelpView.swift */,
 			);
 			path = Help;
 			sourceTree = "<group>";
 		};
-		1A0B2 /* Launcher */ = {
+		AA0432 /* Launcher */ = {
 			isa = PBXGroup;
 			children = (
-				1A032 /* LauncherManager.swift */,
+				AA0116 /* LauncherManager.swift */,
 			);
 			path = Launcher;
 			sourceTree = "<group>";
 		};
-		1A0B3 /* MenuBar */ = {
+		AA0433 /* MenuBar */ = {
 			isa = PBXGroup;
 			children = (
-				1A034 /* MenuBarManager.swift */,
+				AA0117 /* MenuBarManager.swift */,
 			);
 			path = MenuBar;
 			sourceTree = "<group>";
 		};
-		1A0B4 /* ModeSwitcher */ = {
+		AA0434 /* ModeSwitcher */ = {
 			isa = PBXGroup;
 			children = (
-				1A036 /* ModeManager.swift */,
+				AA0118 /* ModeManager.swift */,
 			);
 			path = ModeSwitcher;
 			sourceTree = "<group>";
 		};
-		1A0B5 /* Onboarding */ = {
+		AA0435 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				1A038 /* OnboardingCoordinator.swift */,
+				AA0119 /* OnboardingCoordinator.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
-		1A0B6 /* Settings */ = {
+		AA0436 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				1A040 /* SettingsView.swift */,
+				AA0120 /* SettingsView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		1A093 /* Shared */ = {
+		AA0413 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				1A0C0 /* Utils */,
-				1A0C1 /* Views */,
+				AA0440 /* Utils */,
+				AA0441 /* Views */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
 		};
-		1A0C0 /* Utils */ = {
+		AA0440 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				1A042 /* Constants.swift */,
-				1A044 /* Extensions.swift */,
-				1A046 /* KeyboardShortcut.swift */,
+				AA0121 /* Constants.swift */,
+				AA0122 /* Extensions.swift */,
+				AA0123 /* KeyboardShortcut.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		1A0C1 /* Views */ = {
+		AA0441 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1A048 /* ModeSwitcherView.swift */,
+				AA0124 /* ModeSwitcherView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		1A094 /* Resources */ = {
+		AA0414 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1A050 /* Assets.xcassets */,
+				AA0125 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -273,13 +273,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1A0D0 /* Flowbar */ = {
+		AA0500 /* Flowbar */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1A0D1 /* Build configuration list for PBXNativeTarget "Flowbar" */;
+			buildConfigurationList = AA0501 /* Build configuration list for PBXNativeTarget "Flowbar" */;
 			buildPhases = (
-				1A0D2 /* Sources */,
-				1A070 /* Frameworks */,
-				1A0D3 /* Resources */,
+				AA0502 /* Sources */,
+				AA0300 /* Frameworks */,
+				AA0503 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -287,25 +287,26 @@
 			);
 			name = Flowbar;
 			productName = Flowbar;
-			productReference = 1A060 /* Flowbar.app */;
+			productReference = AA0200 /* Flowbar.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		1A0E0 /* Project object */ = {
+		AA0600 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
-					1A0D0 = {
+					AA0500 = {
 						CreatedOnToolsVersion = 15.0;
+						LastSwiftMigration = 1500;
 					};
 				};
 			};
-			buildConfigurationList = 1A0E1 /* Build configuration list for PBXProject "Flowbar" */;
+			buildConfigurationList = AA0601 /* Build configuration list for PBXProject "Flowbar" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -313,63 +314,63 @@
 				en,
 				Base,
 			);
-			mainGroup = 1A080;
-			productRefGroup = 1A082 /* Products */;
+			mainGroup = AA0400 /* Project */;
+			productRefGroup = AA0402 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1A0D0 /* Flowbar */,
+				AA0500 /* Flowbar */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1A0D3 /* Resources */ = {
+		AA0503 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A049 /* Assets.xcassets in Resources */,
+				AA0025 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1A0D2 /* Sources */ = {
+		AA0502 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A001 /* FlowbarApp.swift in Sources */,
-				1A002 /* AppDelegate.swift in Sources */,
-				1A003 /* FlowbarAnimations.swift in Sources */,
-				1A004 /* AppAssignment.swift in Sources */,
-				1A005 /* DNDApp.swift in Sources */,
-				1A006 /* IconAssignment.swift in Sources */,
-				1A007 /* Mode.swift in Sources */,
-				1A008 /* OnboardingState.swift in Sources */,
-				1A009 /* Preference.swift in Sources */,
-				1A010 /* DataController.swift in Sources */,
-				1A021 /* FeedbackManager.swift in Sources */,
-				1A023 /* OptimizationManager.swift in Sources */,
-				1A025 /* FocusGuardManager.swift in Sources */,
-				1A027 /* FocusGuardStatusOverlay.swift in Sources */,
-				1A029 /* HelpView.swift in Sources */,
-				1A031 /* LauncherManager.swift in Sources */,
-				1A033 /* MenuBarManager.swift in Sources */,
-				1A035 /* ModeManager.swift in Sources */,
-				1A037 /* OnboardingCoordinator.swift in Sources */,
-				1A039 /* SettingsView.swift in Sources */,
-				1A041 /* Constants.swift in Sources */,
-				1A043 /* Extensions.swift in Sources */,
-				1A045 /* KeyboardShortcut.swift in Sources */,
-				1A047 /* ModeSwitcherView.swift in Sources */,
+				AA0001 /* FlowbarApp.swift in Sources */,
+				AA0002 /* AppDelegate.swift in Sources */,
+				AA0003 /* FlowbarAnimations.swift in Sources */,
+				AA0004 /* AppAssignment.swift in Sources */,
+				AA0005 /* DNDApp.swift in Sources */,
+				AA0006 /* IconAssignment.swift in Sources */,
+				AA0007 /* Mode.swift in Sources */,
+				AA0008 /* OnboardingState.swift in Sources */,
+				AA0009 /* Preference.swift in Sources */,
+				AA0010 /* DataController.swift in Sources */,
+				AA0011 /* FeedbackManager.swift in Sources */,
+				AA0012 /* OptimizationManager.swift in Sources */,
+				AA0013 /* FocusGuardManager.swift in Sources */,
+				AA0014 /* FocusGuardStatusOverlay.swift in Sources */,
+				AA0015 /* HelpView.swift in Sources */,
+				AA0016 /* LauncherManager.swift in Sources */,
+				AA0017 /* MenuBarManager.swift in Sources */,
+				AA0018 /* ModeManager.swift in Sources */,
+				AA0019 /* OnboardingCoordinator.swift in Sources */,
+				AA0020 /* SettingsView.swift in Sources */,
+				AA0021 /* Constants.swift in Sources */,
+				AA0022 /* Extensions.swift in Sources */,
+				AA0023 /* KeyboardShortcut.swift in Sources */,
+				AA0024 /* ModeSwitcherView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		1A0F0 /* Debug */ = {
+		AA0700 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -432,7 +433,7 @@
 			};
 			name = Debug;
 		};
-		1A0F1 /* Release */ = {
+		AA0701 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -486,7 +487,7 @@
 			};
 			name = Release;
 		};
-		1A0F2 /* Debug */ = {
+		AA0702 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -500,7 +501,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = Flowbar/Info.plist;
+				INFOPLIST_FILE = Flowbar/Flowbar/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -515,7 +516,7 @@
 			};
 			name = Debug;
 		};
-		1A0F3 /* Release */ = {
+		AA0703 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -529,7 +530,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = Flowbar/Info.plist;
+				INFOPLIST_FILE = Flowbar/Flowbar/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -547,25 +548,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1A0D1 /* Build configuration list for PBXNativeTarget "Flowbar" */ = {
+		AA0501 /* Build configuration list for PBXNativeTarget "Flowbar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1A0F2 /* Debug */,
-				1A0F3 /* Release */,
+				AA0702 /* Debug */,
+				AA0703 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1A0E1 /* Build configuration list for PBXProject "Flowbar" */ = {
+		AA0601 /* Build configuration list for PBXProject "Flowbar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1A0F0 /* Debug */,
-				1A0F1 /* Release */,
+				AA0700 /* Debug */,
+				AA0701 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 1A0E0 /* Project object */;
+	rootObject = AA0600 /* Project object */;
 }
