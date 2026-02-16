@@ -1,173 +1,259 @@
-# Flowbar - 프로젝트 요약
+# Flowbar
 
-## 📁 프로젝트 구조
+<div align="center">
+
+**Focus-Enhancing Menu Bar Utility for macOS**
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![macOS](https://img.shields.io/badge/macOS-14%2B-blue.svg)](https://www.apple.com/macos/)
+[![Swift](https://img.shields.io/badge/Swift-5.9-orange.svg)](https://swift.org)
+
+[Features](#features) • [Installation](#installation) • [Usage](#usage) • [Configuration](#configuration) • [Contributing](#contributing)
+
+</div>
+
+## Overview
+
+Flowbar is a powerful menu bar utility that helps you maintain focus by intelligently managing menu bar icons and preventing interruptions during work sessions. Perfect for developers, designers, and anyone who wants to minimize distractions.
+
+## ✨ Features
+
+### 🔄 Mode Switching
+- **Smart Modes**: Create up to 9 custom modes for different work contexts (Coding, Design, Meeting, etc.)
+- **Icon Filtering**: Each mode shows only relevant menu bar icons
+- **Quick Switching**: Lightning-fast mode switching via keyboard shortcuts
+- **Custom Icons**: Personalize each mode with custom icons
+
+### 🛡️ Focus Guard
+- **Focus Theft Prevention**: Blocks apps from stealing focus
+- **Do Not Disturb**: Per-app DND settings to block notifications
+- **Auto-Hide**: Automatically dismiss notification banners
+- **Visual Indicators**: Status overlay shows when Focus Guard is active
+
+### 🚀 Mini Launcher
+- **Quick Launch**: ⌘+Space to launch any app instantly
+- **Fuzzy Search**: Find apps even with partial matches
+- **Mode Filtering**: Search apps within specific modes
+- **Recent Apps**: Quick access to recently used applications
+
+### 🎯 Menu Bar Management
+- **Smart Scanning**: Automatically detects and categorizes menu bar icons
+- **System Icon Detection**: Identifies and preserves system icons
+- **Icon Assignment**: Assign icons to modes based on your workflow
+- **Visibility Control**: Fine-grained control over icon visibility
+
+## 📥 Installation
+
+### Requirements
+- macOS 14.0 (Sonoma) or later
+- Accessibility permission (for menu bar icon control)
+
+### Install from Release
+
+1. Download the latest [release](https://github.com/Fission-AI/Flowbar/releases)
+2. Open `Flowbar-1.0.0.dmg`
+3. Drag Flowbar to Applications folder
+4. Launch Flowbar from Applications
+5. Follow the onboarding wizard
+
+### Build from Source
+
+```bash
+# Clone the repository
+git clone https://github.com/Fission-AI/Flowbar.git
+cd Flowbar
+
+# Open in Xcode
+open Flowbar.xcodeproj
+
+# Build and run (⌘+R in Xcode)
+```
+
+## 🚀 Usage
+
+### Quick Start
+
+1. **Grant Accessibility Permission**
+   - Flowbar will prompt you on first launch
+   - Go to System Settings > Privacy & Security > Accessibility
+   - Enable Flowbar
+
+2. **Complete Onboarding**
+   - Follow the guided setup wizard
+   - Scan your menu bar icons
+   - Customize default modes
+
+3. **Start Using Flowbar**
+   - Click the menu bar icon to switch modes
+   - Use ⌘+Shift+M for the mode switcher
+   - Press ⌘+Space to open the launcher
+
+### Keyboard Shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| ⌘+Shift+M | Open mode switcher |
+| ⌘+Shift+1-9 | Switch to mode 1-9 |
+| ⌘+Space | Open launcher |
+| ⌘+, | Open Settings |
+| ESC | Close windows |
+
+### Mode Management
+
+**Creating Modes:**
+1. Open Settings (⌘+,)
+2. Go to Modes tab
+3. Click "Add Mode"
+4. Enter mode name and select icon
+5. Assign icons to the mode
+
+**Switching Modes:**
+- Click menu bar icon → Select mode
+- Use ⌘+Shift+M → Select from switcher
+- Press ⌘+Shift+1-9 → Direct mode switch
+
+## ⚙️ Configuration
+
+### Modes
+
+Customize each mode with:
+- **Name**: Descriptive name for the mode
+- **Icon**: Choose from 12+ SF Symbols
+- **Icon Assignments**: Select which menu bar icons to show
+
+### Focus Guard
+
+Configure focus protection:
+- **Enable/Disable**: Toggle Focus Guard on/off
+- **DND Apps**: Add apps to Do Not Disturb list
+- **Sensitivity**: Adjust focus theft detection threshold
+
+### Shortcuts
+
+Customize keyboard shortcuts:
+- **Mode Switcher**: Default ⌘+Shift+M
+- **Launcher**: Default ⌘+Space
+- **Direct Mode Switch**: ⌘+Shift+1-9
+
+### Appearance
+
+Personalize the look:
+- **Dark/Light Mode**: System, Light, or Dark
+- **Menu Bar Icon**: Show/hide menu bar icon
+- **Animations**: Enable/disable transitions
+
+## 🔧 Development
+
+### Project Structure
 
 ```
-projects/flowbar/
-├── docs/
-│   ├── PRD.md                    # 제품 요구사항 문서
-│   ├── technical-spec.md         # 기술 스펙
-│   └── community-posts.md        # 커뮤니티 포스팅 초안
-├── landing/
-│   └── index.html                # 랜딩 페이지
-└── src/
-    ├── FlowbarApp.swift          # 앱 진입점
-    ├── AppDelegate.swift         # 메뉴바 아이콘, 상태 관리
-    ├── Models/
-    │   ├── Mode.swift            # 모드 데이터 모델
-    │   ├── MenuBarItem.swift     # 메뉴바 아이템 모델
-    │   └── Workflow.swift        # 워크플로우 모델
-    ├── Controllers/
-    │   ├── ModeManager.swift     # 모드 관리
-    │   ├── MenuBarController.swift # 메뉴바 제어
-    │   ├── FocusGuard.swift      # 포커스 가드
-    │   └── WorkflowEngine.swift  # 워크플로우 엔진
-    ├── Views/
-    │   ├── ModePickerView.swift  # 모드 선택 팝업
-    │   ├── SettingsView.swift    # 설정 윈도우
-    │   └── ModeEditorView.swift  # 모드 편집기
-    ├── Info.plist                # 앱 정보
-    └── Flowbar.entitlements      # 권한 설정
+Flowbar/
+├── App/                    # Application entry point
+│   ├── FlowbarApp.swift
+│   └── AppDelegate.swift
+├── Core/                   # Core functionality
+│   ├── Models/            # SwiftData models
+│   ├── Persistence/       # Data controller
+│   ├── Animations/        # UI animations
+│   └── Utils/             # Utilities
+├── Features/              # Feature modules
+│   ├── MenuBar/          # Menu bar management
+│   ├── ModeSwitcher/     # Mode switching
+│   ├── FocusGuard/       # Focus protection
+│   ├── Launcher/         # App launcher
+│   ├── Onboarding/       # First-run setup
+│   ├── Settings/         # Settings UI
+│   └── Help/             # Help & documentation
+└── FlowbarTests/         # Test suites
 ```
 
----
+### Building
 
-## ✅ 완료된 작업
+```bash
+# Build for development
+xcodebuild -project Flowbar.xcodeproj -scheme Flowbar -configuration Debug
 
-| 항목 | 상태 | 비고 |
-|-----|------|------|
-| 제품 기획 (PRD) | ✅ | 기능, 타겟, 비즈니스 모델 정의 |
-| 기술 스펙 | ✅ | 아키텍처, API, 성능 목표 |
-| 랜딩 페이지 | ✅ | HTML/CSS 완성, 이메일 수집 폼 |
-| 커뮤니티 포스팅 | ✅ | Reddit, HN, 클리앙, IH 초안 |
-| Swift 코드 | ✅ | 핵심 모듈 구현 |
-| UI 뷰 | ✅ | SwiftUI 뷰 3개 |
+# Build for release
+xcodebuild -project Flowbar.xcodeproj -scheme Flowbar -configuration Release
 
----
+# Run tests
+xcodebuild test -project Flowbar.xcodeproj -scheme Flowbar -destination 'platform=macOS'
+```
 
-## ⚠️ 검토 필요 사항
+### Dependencies
 
-### 1. 랜딩 페이지
+Flowbar is built with:
+- **SwiftUI**: Modern UI framework
+- **SwiftData**: Data persistence
+- **AppKit**: Native macOS integration
+- **Accessibility API**: Menu bar control
+- **CGEvent Tap**: Focus protection
 
-**파일:** `landing/index.html`
+## 🤝 Contributing
 
-**확인 포인트:**
-- [ ] 가격 ($19) 괜찮은지
-- [ ] 문구/톤앤매너
-- [ ] 스크린샷/목업 이미지 추가 필요 (현재 `[Flowbar App Screenshot]` 텍스트)
-- [ ] 이메일 수집 서비스 연동 (현재 `<form action="#">`)
-  - 추천: ConvertKit, Mailchimp, 또는 직접 구현
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
-### 2. 커뮤니티 포스팅
+### How to Contribute
 
-**파일:** `docs/community-posts.md`
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-**확인 포인트:**
-- [ ] 내용이 너무 길지 않은지
-- [ ] 톤이 적절한지
-- [ ] 링크 삽입할 곳 (랜딩 페이지 URL)
+### Development Setup
 
-### 3. 기술 스펙
+```bash
+# Clone your fork
+git clone https://github.com/YOUR-USERNAME/Flowbar.git
+cd Flowbar
 
-**파일:** `docs/technical-spec.md`
+# Add upstream remote
+git remote add upstream https://github.com/Fission-AI/Flowbar.git
 
-**확인 포인트:**
-- [ ] SwiftUI + AppKit 하이브리드 접근 동의하는지
-- [ ] Accessibility API 의존 괜찮은지
-- [ ] 샌드박스 비활성화 (App Store 등록 제약) 괜찮은지
+# Install dependencies (if any)
+# No external dependencies - pure Swift/SwiftUI!
 
-### 4. Swift 코드
+# Open in Xcode
+open Flowbar.xcodeproj
+```
 
-**폴더:** `src/`
+## 📄 License
 
-**확인 포인트:**
-- [ ] 코드 스타일/구조 괜찮은지
-- [ ] 누락된 기능 없는지
-- [ ] 실제 Xcode 프로젝트 생성 후 파일 복사 필요
+Flowbar is released under the [MIT License](LICENSE).
 
----
+## 🙏 Acknowledgments
 
-## 🚀 다음 단계
+- Built with [Swift](https://swift.org) and [SwiftUI](https://developer.apple.com/xcode/swiftui/)
+- Inspired by [Bartender](https://www.macbartender.com/) and [HazeOver](https://hazeover.com/)
+- Icons from [SF Symbols](https://developer.apple.com/sf-symbols/)
 
-### 즉시 진행 가능
+## 📞 Support
 
-1. **랜딩 페이지 배포**
-   - Vercel, Netlify, GitHub Pages 중 선택
-   - 이메일 수집 서비스 연동
-   - URL 확보 후 커뮤니티 포스팅 수정
+- **Documentation**: [Wiki](https://github.com/Fission-AI/Flowbar/wiki)
+- **Issues**: [GitHub Issues](https://github.com/Fission-AI/Flowbar/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/Fission-AI/Flowbar/discussions)
 
-2. **커뮤니티 포스팅**
-   - r/macapps에 "이런 거 만들면 쓰실?" 포스팅
-   - HN Ask HN 포스팅
-   - 피드백 수집
+## 🗺️ Roadmap
 
-### 개발 착수 (검증 후)
+### Version 1.1 (Planned)
+- [ ] Cloud sync for settings
+- [ ] Advanced filtering rules
+- [ ] Custom themes
+- [ ] Performance improvements
 
-3. **Xcode 프로젝트 생성**
-   ```bash
-   # Mac App 프로젝트 생성
-   # src/ 파일들 복사
-   # SwiftData 설정
-   # Signing & Capabilities 설정
-   ```
-
-4. **실제 디바이스 테스트**
-   - Accessibility API 실제 동작 확인
-   - 다양한 macOS 버전 테스트
+### Version 2.0 (Future)
+- [ ] Team collaboration features
+- [ ] iOS companion app
+- [ ] Analytics dashboard
+- [ ] Plugin system
 
 ---
 
-## 📊 KPI
+<div align="center">
 
-### 검증 단계 (2주)
+Made with ❤️ by the Flowbar team
 
-| 지표 | 목표 | 현재 |
-|-----|------|------|
-| 이메일 등록 | 100개 | 0 |
-| 랜딩 페이지 방문 | 1,000 | 0 |
-| 피드백 응답 | 20개 | 0 |
+[Website](https://flowbar.app) • [Blog](https://blog.flowbar.app) • [Twitter](https://twitter.com/flowbarapp)
 
-### 출시 후 (1개월)
-
-| 지표 | 목표 |
-|-----|------|
-| 다운로드 | 500 |
-| 유료 전환 | 25건 (5%) |
-| 매출 | $475 |
-
----
-
-## 🔗 주요 링크 (작성 필요)
-
-| 항목 | URL |
-|-----|-----|
-| 랜딩 페이지 | TBD |
-| 이슈 트래커 | TBD |
-| 코드 저장소 | TBD |
-| 디자인 파일 | TBD |
-
----
-
-## 💬 질문 사항
-
-정석님이 검토 후 결정해주셔야 할 것들:
-
-1. **가격 정책**
-   - Pro $19 일회 구매 괜찮은지?
-   - 구독 모델도 고려할지?
-
-2. **판매 채널**
-   - 직접 판매 vs Mac App Store?
-   - 결제: Paddle vs Gumroad vs Stripe?
-
-3. **브랜딩**
-   - "Flowbar" 이름 괜찮은지?
-   - 로고/아이콘 디자인 누가 할지?
-
-4. **개발 일정**
-   - 직접 개발 vs 외주?
-   - 예상 출시 시점?
-
----
-
-_생성일: 2025-02-17_
+</div>
