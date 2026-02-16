@@ -31,7 +31,7 @@
 		AA002F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0032 /* Extensions.swift */; };
 		AA0030 /* KeyboardShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0033 /* KeyboardShortcut.swift */; };
 		AA0031 /* ModeSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0034 /* ModeSwitcherView.swift */; };
-		AA0032 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA0035 /* Assets.xcassets */; };
+		AA003F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA0035 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -328,7 +328,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA0032 /* Assets.xcassets in Resources */,
+				AA003F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
