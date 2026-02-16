@@ -1,0 +1,138 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      bump_type:
+        description: 'Version bump type'
+        required: true
+        type: choice
+        options:
+          - major
+          - minor
+          - patch
+      pre_release:
+        description: 'Is this a pre-release?'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  release:
+    name: Build and Release
+    runs-on: macos-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Get current version
+        id: get_version
+        run: |
+          CURRENT_VERSION=$(git describe --tags --abbrev=0 2>/dev/null || echo "0.0.0")
+          echo "current_version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
+          echo "Current version: $CURRENT_VERSION"
+
+      - name: Bump version
+        id: bump_version
+        run: |
+          NEW_VERSION=$(./scripts/bump-version.sh ${{ inputs.bump_type }})
+          echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+          echo "New version: $NEW_VERSION"
+
+      - name: Set pre-release suffix
+        if: ${{ inputs.pre_release }}
+        run: |
+          PRE_RELEASE_VERSION="${{ steps.bump_version.outputs.new_version }}-beta.0"
+          echo "new_version=$PRE_RELEASE_VERSION" >> $GITHUB_STEP_SUMMARY
+          echo "new_version=$PRE_RELEASE_VERSION" >> $GITHUB_ENV
+
+      - name: Create Git tag
+        run: |
+          git tag -a "v${{ steps.bump_version.outputs.new_version }}" -m "Release ${{ steps.bump_version.outputs.new_version }}"
+          git push origin "v${{ steps.bump_version.outputs.new_version }}"
+
+      - name: Install create-dmg
+        run: |
+          brew install create-dmg
+
+      - name: Build macOS app
+        env:
+          VERSION: ${{ steps.bump_version.outputs.new_version }}
+        run: |
+          ./scripts/build-macos.sh "$VERSION"
+
+      - name: Get build artifacts
+        id: artifacts
+        run: |
+          DMG_PATH=$(find build -name "*.dmg" | head -n 1)
+          APP_PATH=$(find build -name "*.app" | head -n 1)
+
+          if [ -z "$DMG_PATH" ]; then
+            echo "Error: DMG not found"
+            exit 1
+          fi
+
+          echo "dmg_path=$DMG_PATH" >> $GITHUB_OUTPUT
+          echo "app_path=$APP_PATH" >> $GITHUB_OUTPUT
+
+          # Verify DMG
+          if ! hdiutil attach "$DMG_PATH" -readonly -nobrowse -mountpoint /tmp/dmg-test; then
+            echo "Error: DMG is not mountable"
+            exit 1
+          fi
+          hdiutil detach /tmp/dmg-test
+
+          echo "✓ Build artifacts verified"
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ steps.bump_version.outputs.new_version }}
+          name: Flowbar ${{ steps.bump_version.outputs.new_version }}
+          body: |
+            ## Flowbar ${{ steps.bump_version.outputs.new_version }}
+
+            ### What's Changed
+
+            See [RELEASE_NOTES.md](https://github.com/jeongsk/flowbar/blob/main/RELEASE_NOTES.md) for detailed release notes.
+
+            ### Installation
+
+            1. Download `Flowbar-${{ steps.bump_version.outputs.new_version }}.dmg`
+            2. Open the DMG and drag Flowbar to Applications
+            3. Launch Flowbar from Applications
+
+            ### Requirements
+            - macOS 14.0 (Sonoma) or later
+
+          files: |
+            ${{ steps.artifacts.outputs.dmg_path }}
+          draft: false
+          prerelease: ${{ inputs.pre_release }}
+          generate_release_notes: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update version info
+        if: ${{ !inputs.pre_release }}
+        run: |
+          # Update version in Info.plist if needed
+          plutil -replace CFBundleShortVersionString -string "${{ steps.bump_version.outputs.new_version }}" Flowbar/Flowbar/Info.plist
+          plutil -replace CFBundleVersion -string "${{ steps.bump_version.outputs.new_version }}" Flowbar/Flowbar/Info.plist
+
+          # Commit version update
+          git add Flowbar/Flowbar/Info.plist
+          git commit -m "chore(version): Bump version to ${{ steps.bump_version.outputs.new_version }}"
+          git push origin main
