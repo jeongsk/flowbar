@@ -63,7 +63,7 @@ This document describes the GitHub Actions workflow for automated version bumpin
     - Marks as pre-release if applicable
 
 11. **Update Version Info** (final releases only)
-    - Updates Info.plist with new version
+    - Updates Flowbar/Info.plist with new version
     - Commits version bump
     - Pushes to main branch
 
