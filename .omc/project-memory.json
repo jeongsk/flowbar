@@ -107,15 +107,15 @@
   },
   "hotPaths": [
     {
-      "path": "openspec/changes/prd-implementation/tasks.md",
-      "accessCount": 21,
-      "lastAccessed": 1771242807480,
+      "path": "Flowbar/Flowbar.xcodeproj/project.pbxproj",
+      "accessCount": 23,
+      "lastAccessed": 1771246857769,
       "type": "file"
     },
     {
-      "path": "Flowbar/Flowbar.xcodeproj/project.pbxproj",
-      "accessCount": 16,
-      "lastAccessed": 1771246213249,
+      "path": "openspec/changes/prd-implementation/tasks.md",
+      "accessCount": 21,
+      "lastAccessed": 1771242807480,
       "type": "file"
     },
     {

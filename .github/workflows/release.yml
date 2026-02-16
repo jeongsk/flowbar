@@ -131,10 +131,10 @@ jobs:
         run: |
           VERSION="${{ steps.set_pre_release.outputs.new_version || steps.bump_version.outputs.new_version }}"
           # Update version in Info.plist if needed
-          plutil -replace CFBundleShortVersionString -string "$VERSION" Flowbar/Info.plist
-          plutil -replace CFBundleVersion -string "$VERSION" Flowbar/Info.plist
+          plutil -replace CFBundleShortVersionString -string "$VERSION" Flowbar/Flowbar/Info.plist
+          plutil -replace CFBundleVersion -string "$VERSION" Flowbar/Flowbar/Info.plist
 
           # Commit version update
-          git add Flowbar/Info.plist
+          git add Flowbar/Flowbar/Info.plist
           git commit -m "chore(version): Bump version to $VERSION"
           git push origin main

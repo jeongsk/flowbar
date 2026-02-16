@@ -61,8 +61,8 @@
 		AA0123 /* KeyboardShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardShortcut.swift; sourceTree = "<group>"; };
 		AA0124 /* ModeSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSwitcherView.swift; sourceTree = "<group>"; };
 		AA0125 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AA0126 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AA0127 /* Flowbar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flowbar.entitlements; sourceTree = "<group>"; };
+		AA0126 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Flowbar/Info.plist; sourceTree = "<group>"; };
+		AA0127 /* Flowbar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flowbar/Flowbar.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				AA0401 /* Flowbar */,
+				AA0405 /* Config */,
 				AA0402 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,8 +93,23 @@
 				AA0412 /* Features */,
 				AA0413 /* Shared */,
 				AA0414 /* Resources */,
+			);
+			path = Flowbar;
+			sourceTree = "<group>";
+		};
+		AA0405 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				AA0415 /* Flowbar */,
 				AA0126 /* Info.plist */,
 				AA0127 /* Flowbar.entitlements */,
+			);
+			path = Flowbar;
+			sourceTree = "<group>";
+		};
+		AA0415 /* Flowbar */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Flowbar;
 			sourceTree = "<group>";
@@ -492,7 +508,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Flowbar/Flowbar.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Flowbar/Flowbar/Flowbar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -501,7 +517,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = Flowbar/Flowbar/Info.plist;
+				INFOPLIST_FILE = Flowbar/Flowbar/Flowbar/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -521,7 +537,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Flowbar/Flowbar.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Flowbar/Flowbar/Flowbar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -530,7 +546,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = Flowbar/Flowbar/Info.plist;
+				INFOPLIST_FILE = Flowbar/Flowbar/Flowbar/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
