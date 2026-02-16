@@ -32,3 +32,5 @@
 {"t":0,"agent":"system","event":"mode_change","mode_from":"none","mode_to":"autopilot"}
 {"t":0,"agent":"ae8e51f","agent_type":"general-purpose","event":"agent_start","parent_mode":"none"}
 {"t":0,"agent":"ae8e51f","agent_type":"general-purpose","event":"agent_stop","success":true,"duration_ms":190613}
+{"t":0,"agent":"a57d4a5","agent_type":"build-fixer","event":"agent_start","parent_mode":"none"}
+{"t":0,"agent":"a57d4a5","agent_type":"build-fixer","event":"agent_stop","success":true,"duration_ms":198662}
