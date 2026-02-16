@@ -1,0 +1,411 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1771240413374,
+  "projectRoot": "/home/ubuntu/.openclaw/workspace/projects/flowbar",
+  "techStack": {
+    "languages": [],
+    "frameworks": [],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "docs",
+      "src"
+    ],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "docs": {
+      "path": "docs",
+      "purpose": "Documentation",
+      "fileCount": 3,
+      "lastAccessed": 1771240413363,
+      "keyFiles": [
+        "PRD.md",
+        "community-posts.md",
+        "technical-spec.md"
+      ]
+    },
+    "landing": {
+      "path": "landing",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1771240413369,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "openspec": {
+      "path": "openspec",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1771240413370,
+      "keyFiles": []
+    },
+    "src": {
+      "path": "src",
+      "purpose": "Source code",
+      "fileCount": 4,
+      "lastAccessed": 1771240413370,
+      "keyFiles": [
+        "AppDelegate.swift",
+        "Flowbar.entitlements",
+        "FlowbarApp.swift",
+        "Info.plist"
+      ]
+    },
+    "src/Controllers": {
+      "path": "src/Controllers",
+      "purpose": "Controllers",
+      "fileCount": 4,
+      "lastAccessed": 1771240413371,
+      "keyFiles": [
+        "FocusGuard.swift",
+        "MenuBarController.swift",
+        "ModeManager.swift"
+      ]
+    },
+    "src/Models": {
+      "path": "src/Models",
+      "purpose": "Data models",
+      "fileCount": 3,
+      "lastAccessed": 1771240413372,
+      "keyFiles": [
+        "MenuBarItem.swift",
+        "Mode.swift",
+        "Workflow.swift"
+      ]
+    },
+    "src/Views": {
+      "path": "src/Views",
+      "purpose": "View templates",
+      "fileCount": 3,
+      "lastAccessed": 1771240413373,
+      "keyFiles": [
+        "ModeEditorView.swift",
+        "ModePickerView.swift",
+        "SettingsView.swift"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "openspec/changes/prd-implementation/tasks.md",
+      "accessCount": 21,
+      "lastAccessed": 1771242807480,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Flowbar.xcodeproj/project.pbxproj",
+      "accessCount": 16,
+      "lastAccessed": 1771246213249,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/App/AppDelegate.swift",
+      "accessCount": 6,
+      "lastAccessed": 1771242231675,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Features/FocusGuard/FocusGuardManager.swift",
+      "accessCount": 6,
+      "lastAccessed": 1771242241179,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Core/Persistence/DataController.swift",
+      "accessCount": 5,
+      "lastAccessed": 1771243449855,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Info.plist",
+      "accessCount": 4,
+      "lastAccessed": 1771244077293,
+      "type": "file"
+    },
+    {
+      "path": "openspec/changes/prd-implementation/proposal.md",
+      "accessCount": 3,
+      "lastAccessed": 1771241020400,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/App/FlowbarApp.swift",
+      "accessCount": 3,
+      "lastAccessed": 1771241605834,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Features/MenuBar/MenuBarManager.swift",
+      "accessCount": 3,
+      "lastAccessed": 1771241686755,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Features/ModeSwitcher/ModeManager.swift",
+      "accessCount": 3,
+      "lastAccessed": 1771241851876,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Features/Launcher/LauncherManager.swift",
+      "accessCount": 3,
+      "lastAccessed": 1771241960437,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Features/Onboarding/OnboardingCoordinator.swift",
+      "accessCount": 3,
+      "lastAccessed": 1771242042916,
+      "type": "file"
+    },
+    {
+      "path": "README.md",
+      "accessCount": 3,
+      "lastAccessed": 1771243693946,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Flowbar.entitlements",
+      "accessCount": 3,
+      "lastAccessed": 1771244077287,
+      "type": "file"
+    },
+    {
+      "path": "openspec/changes/prd-implementation/design.md",
+      "accessCount": 2,
+      "lastAccessed": 1771241020384,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Core/Animations/FlowbarAnimations.swift",
+      "accessCount": 2,
+      "lastAccessed": 1771243453486,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Core/Models/Mode.swift",
+      "accessCount": 2,
+      "lastAccessed": 1771243453519,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Core/Models/Preference.swift",
+      "accessCount": 2,
+      "lastAccessed": 1771243453531,
+      "type": "file"
+    },
+    {
+      "path": "openspec/AGENTS.md",
+      "accessCount": 2,
+      "lastAccessed": 1771243471212,
+      "type": "file"
+    },
+    {
+      "path": "RELEASE_NOTES.md",
+      "accessCount": 2,
+      "lastAccessed": 1771243693994,
+      "type": "file"
+    },
+    {
+      "path": "docs/PRD.md",
+      "accessCount": 1,
+      "lastAccessed": 1771240582797,
+      "type": "file"
+    },
+    {
+      "path": "openspec/changes/prd-implementation/specs/menubar-icon-management/spec.md",
+      "accessCount": 1,
+      "lastAccessed": 1771240868664,
+      "type": "file"
+    },
+    {
+      "path": "openspec/changes/prd-implementation/specs/mode-switching/spec.md",
+      "accessCount": 1,
+      "lastAccessed": 1771240868823,
+      "type": "file"
+    },
+    {
+      "path": "openspec/changes/prd-implementation/specs/focus-guard/spec.md",
+      "accessCount": 1,
+      "lastAccessed": 1771240868962,
+      "type": "file"
+    },
+    {
+      "path": "openspec/changes/prd-implementation/specs/mini-launcher/spec.md",
+      "accessCount": 1,
+      "lastAccessed": 1771240869081,
+      "type": "file"
+    },
+    {
+      "path": "openspec/changes/prd-implementation/specs/onboarding/spec.md",
+      "accessCount": 1,
+      "lastAccessed": 1771240869210,
+      "type": "file"
+    },
+    {
+      "path": "openspec/changes/prd-implementation/specs/data-persistence/spec.md",
+      "accessCount": 1,
+      "lastAccessed": 1771240869344,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Core/Models/IconAssignment.swift",
+      "accessCount": 1,
+      "lastAccessed": 1771241146989,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Core/Models/OnboardingState.swift",
+      "accessCount": 1,
+      "lastAccessed": 1771241147252,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Core/Models/AppAssignment.swift",
+      "accessCount": 1,
+      "lastAccessed": 1771241147408,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Core/Models/DNDApp.swift",
+      "accessCount": 1,
+      "lastAccessed": 1771241147519,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Shared/Views/ModeSwitcherView.swift",
+      "accessCount": 1,
+      "lastAccessed": 1771241262089,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Shared/Utils/KeyboardShortcut.swift",
+      "accessCount": 1,
+      "lastAccessed": 1771241262222,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Shared/Utils/Extensions.swift",
+      "accessCount": 1,
+      "lastAccessed": 1771241262346,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Shared/Utils/Constants.swift",
+      "accessCount": 1,
+      "lastAccessed": 1771241262505,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Features/Settings/SettingsView.swift",
+      "accessCount": 1,
+      "lastAccessed": 1771242186903,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Features/FocusGuard/FocusGuardStatusOverlay.swift",
+      "accessCount": 1,
+      "lastAccessed": 1771242257184,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Features/Help/HelpView.swift",
+      "accessCount": 1,
+      "lastAccessed": 1771242300740,
+      "type": "file"
+    },
+    {
+      "path": "FlowbarTests/ModelTests.swift",
+      "accessCount": 1,
+      "lastAccessed": 1771242337421,
+      "type": "file"
+    },
+    {
+      "path": "FlowbarTests/BusinessLogicTests.swift",
+      "accessCount": 1,
+      "lastAccessed": 1771242361269,
+      "type": "file"
+    },
+    {
+      "path": "FlowbarTests/UITests.swift",
+      "accessCount": 1,
+      "lastAccessed": 1771242406251,
+      "type": "file"
+    },
+    {
+      "path": "FlowbarTests/PerformanceTests.swift",
+      "accessCount": 1,
+      "lastAccessed": 1771242431127,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Core/Utils/OptimizationManager.swift",
+      "accessCount": 1,
+      "lastAccessed": 1771242482472,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Core/Utils/FeedbackManager.swift",
+      "accessCount": 1,
+      "lastAccessed": 1771242537244,
+      "type": "file"
+    },
+    {
+      "path": "PRIVACY_POLICY.md",
+      "accessCount": 1,
+      "lastAccessed": 1771242626342,
+      "type": "file"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "accessCount": 1,
+      "lastAccessed": 1771242747197,
+      "type": "file"
+    },
+    {
+      "path": "docs/USER_GUIDE.md",
+      "accessCount": 1,
+      "lastAccessed": 1771242787263,
+      "type": "file"
+    },
+    {
+      "path": "AGENTS.md",
+      "accessCount": 1,
+      "lastAccessed": 1771243417636,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/AGENTS.md",
+      "accessCount": 1,
+      "lastAccessed": 1771243432096,
+      "type": "file"
+    },
+    {
+      "path": "docs/AGENTS.md",
+      "accessCount": 1,
+      "lastAccessed": 1771243460990,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}
