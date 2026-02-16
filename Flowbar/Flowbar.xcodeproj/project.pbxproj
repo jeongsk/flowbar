@@ -95,7 +95,6 @@
 				1A061 /* Info.plist */,
 				1A062 /* Flowbar.entitlements */,
 			);
-			path = Flowbar;
 			sourceTree = "<group>";
 		};
 		1A082 /* Products */ = {
