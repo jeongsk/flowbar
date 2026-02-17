@@ -1,8 +1,10 @@
 import XCTest
 @testable import Flowbar
 import SwiftData
+import SwiftUI
 
 // MARK: - UI Tests
+@MainActor
 final class UITests: XCTestCase {
 
     var modelContainer: ModelContainer!
@@ -96,8 +98,11 @@ final class UITests: XCTestCase {
     func testModeSwitcherViewSelection() async throws {
         let modeManager = ModeManager(modelContext: modelContext)
 
-        let mode1 = modeManager.createMode(name: "Mode 1", icon: "star.fill", iconAssignments: [])!
-        let mode2 = modeManager.createMode(name: "Mode 2", icon: "moon.fill", iconAssignments: [])!
+        modeManager.createMode(name: "Mode 1", icon: "star.fill", iconAssignments: [])
+        modeManager.createMode(name: "Mode 2", icon: "moon.fill", iconAssignments: [])
+
+        let mode1 = modeManager.allModes.first { $0.name == "Mode 1" }!
+        let mode2 = modeManager.allModes.first { $0.name == "Mode 2" }!
 
         modeManager.switchToMode(mode1)
         XCTAssertEqual(modeManager.currentMode?.id, mode1.id)
@@ -166,19 +171,19 @@ final class UITests: XCTestCase {
         XCTAssertGreaterThan(modeManager.allModes.count, 0)
 
         // Test mode creation
-        let newMode = modeManager.createMode(
+        modeManager.createMode(
             name: "Custom Mode",
             icon: "heart.fill",
             iconAssignments: []
         )
 
-        XCTAssertNotNil(newMode)
         XCTAssertTrue(modeManager.allModes.contains { $0.name == "Custom Mode" })
     }
 
     func testIconsSettingsView() async throws {
         let modeManager = ModeManager(modelContext: modelContext)
-        let mode = modeManager.createMode(name: "Test Mode", icon: "star.fill", iconAssignments: [])!
+        modeManager.createMode(name: "Test Mode", icon: "star.fill", iconAssignments: [])
+        let mode = modeManager.allModes.first { $0.name == "Test Mode" }!
 
         // Add icon assignments
         let assignment1 = IconAssignment(
@@ -261,7 +266,8 @@ final class UITests: XCTestCase {
     // MARK: - Menu Bar UI Tests
     func testMenuBarIconRendering() async throws {
         let modeManager = ModeManager(modelContext: modelContext)
-        let mode = modeManager.createMode(name: "Test Mode", icon: "star.fill", iconAssignments: [])!
+        modeManager.createMode(name: "Test Mode", icon: "star.fill", iconAssignments: [])
+        let mode = modeManager.allModes.first { $0.name == "Test Mode" }!
 
         // Verify mode icon is set
         XCTAssertNotNil(mode.icon)

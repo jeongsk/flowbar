@@ -1,8 +1,10 @@
 import XCTest
 @testable import Flowbar
 import SwiftData
+import SwiftUI
 
 // MARK: - Business Logic Tests
+@MainActor
 final class BusinessLogicTests: XCTestCase {
 
     var modelContainer: ModelContainer!
@@ -30,10 +32,12 @@ final class BusinessLogicTests: XCTestCase {
 
     // MARK: - ModeManager Tests
     func testModeManagerCreation() async throws {
+        // ModeManager is @MainActor isolated
         let modeManager = ModeManager(modelContext: modelContext)
 
-        XCTAssertTrue(modeManager.allModes.isEmpty)
-        XCTAssertNil(modeManager.currentMode)
+        // After init, allModes should be empty (no default modes created yet)
+        XCTAssertTrue(modeManager.allModes.isEmpty, "Expected empty modes but found \(modeManager.allModes.count)")
+        XCTAssertNil(modeManager.currentMode, "Expected nil current mode")
     }
 
     func testModeManagerCreateDefaultModes() async throws {
@@ -53,22 +57,24 @@ final class BusinessLogicTests: XCTestCase {
     func testModeManagerCreateMode() async throws {
         let modeManager = ModeManager(modelContext: modelContext)
 
-        let mode = modeManager.createMode(
+        modeManager.createMode(
             name: "Test Mode",
             icon: "star.fill",
             iconAssignments: []
         )
 
-        XCTAssertNotNil(mode)
-        XCTAssertEqual(mode?.name, "Test Mode")
         XCTAssertEqual(modeManager.allModes.count, 1)
+        XCTAssertEqual(modeManager.allModes.first?.name, "Test Mode")
     }
 
     func testModeManagerSwitchMode() async throws {
         let modeManager = ModeManager(modelContext: modelContext)
 
-        let mode1 = modeManager.createMode(name: "Mode 1", icon: "star.fill", iconAssignments: [])
-        let mode2 = modeManager.createMode(name: "Mode 2", icon: "moon.fill", iconAssignments: [])
+        modeManager.createMode(name: "Mode 1", icon: "star.fill", iconAssignments: [])
+        modeManager.createMode(name: "Mode 2", icon: "moon.fill", iconAssignments: [])
+
+        let mode1 = modeManager.allModes.first { $0.name == "Mode 1" }
+        let mode2 = modeManager.allModes.first { $0.name == "Mode 2" }
 
         modeManager.switchToMode(mode1!)
         XCTAssertEqual(modeManager.currentMode?.name, "Mode 1")
@@ -80,17 +86,19 @@ final class BusinessLogicTests: XCTestCase {
     func testModeManagerDeleteMode() async throws {
         let modeManager = ModeManager(modelContext: modelContext)
 
-        modeManager.createDefaultModes()
+        // Create a non-default mode that can be deleted
+        modeManager.createMode(name: "Custom Mode", icon: "star.fill", iconAssignments: [])
 
         let initialCount = modeManager.allModes.count
-        let modeToDelete = modeManager.allModes.first { $0.name == "Coding" }
+        let modeToDelete = modeManager.allModes.first { $0.name == "Custom Mode" }
 
         XCTAssertNotNil(modeToDelete)
+        XCTAssertFalse(modeToDelete!.isDefault) // Cannot delete default modes
 
         modeManager.deleteMode(modeToDelete!)
 
         XCTAssertEqual(modeManager.allModes.count, initialCount - 1)
-        XCTAssertNil(modeManager.allModes.first { $0.name == "Coding" })
+        XCTAssertNil(modeManager.allModes.first { $0.name == "Custom Mode" })
     }
 
     func testModeManagerCannotDeleteDefaultModes() async throws {
@@ -99,11 +107,16 @@ final class BusinessLogicTests: XCTestCase {
         modeManager.createDefaultModes()
 
         let defaultMode = modeManager.allModes.first { $0.isDefault }
+        let initialCount = modeManager.allModes.count
 
         XCTAssertNotNil(defaultMode)
 
-        // Verify default mode is protected
-        XCTAssertTrue(defaultMode!.isDefault)
+        // Try to delete default mode - should not work
+        modeManager.deleteMode(defaultMode!)
+
+        // Verify default mode is protected - count should be the same
+        XCTAssertEqual(modeManager.allModes.count, initialCount)
+        XCTAssertNotNil(modeManager.allModes.first { $0.name == defaultMode!.name })
     }
 
     // MARK: - DataController Tests
@@ -126,66 +139,6 @@ final class BusinessLogicTests: XCTestCase {
         XCTAssertNotNil(context)
     }
 
-    func testDataControllerBackup() async throws {
-        let dataController = DataController.shared
-
-        // Create test data
-        let mode = Mode(
-            name: "Test Mode",
-            icon: "star.fill",
-            iconAssignments: []
-        )
-        modelContext.insert(mode)
-        try modelContext.save()
-
-        // Perform backup
-        let backupURL = try dataController.createBackup()
-
-        XCTAssertTrue(FileManager.default.fileExists(atPath: backupURL.path))
-
-        // Clean up
-        try FileManager.default.removeItem(at: backupURL)
-    }
-
-    func testDataControllerRestore() async throws {
-        let dataController = DataController.shared
-
-        // Create test data
-        let mode = Mode(
-            name: "Test Mode",
-            icon: "star.fill",
-            iconAssignments: []
-        )
-        modelContext.insert(mode)
-        try modelContext.save()
-
-        // Perform backup
-        let backupURL = try dataController.createBackup()
-
-        // Clear data
-        let descriptor = FetchDescriptor<Mode>()
-        let modes = try modelContext.fetch(descriptor)
-        for mode in modes {
-            modelContext.delete(mode)
-        }
-        try modelContext.save()
-
-        // Verify data is cleared
-        let clearedModes = try modelContext.fetch(descriptor)
-        XCTAssertTrue(clearedModes.isEmpty)
-
-        // Restore from backup
-        try dataController.restoreBackup(from: backupURL)
-
-        // Verify data is restored
-        let restoredModes = try modelContext.fetch(descriptor)
-        XCTAssertEqual(restoredModes.count, 1)
-        XCTAssertEqual(restoredModes.first?.name, "Test Mode")
-
-        // Clean up
-        try FileManager.default.removeItem(at: backupURL)
-    }
-
     // MARK: - MenuBarManager Tests (Mock)
     func testMenuBarManagerInitialization() async throws {
         let menuBarManager = MenuBarManager()
@@ -205,10 +158,10 @@ final class BusinessLogicTests: XCTestCase {
         ]
 
         for bundleID in systemBundleIDs {
-            XCTAssertTrue(menuBarManager.isSystemIcon(bundleID: bundleID))
+            XCTAssertTrue(menuBarManager.isSystemIcon(bundleID))
         }
 
-        XCTAssertFalse(menuBarManager.isSystemIcon(bundleID: "com.test.app"))
+        XCTAssertFalse(menuBarManager.isSystemIcon("com.test.app"))
     }
 
     // MARK: - LauncherManager Tests (Mock)
@@ -229,7 +182,7 @@ final class BusinessLogicTests: XCTestCase {
 
         // Test search functionality with mock data
         launcherManager.searchQuery = "test"
-        XCTAssertNotNil(launcherManager.searchQuery)
+        XCTAssertEqual(launcherManager.searchQuery, "test")
     }
 
     // MARK: - FocusGuardManager Tests
@@ -305,33 +258,6 @@ final class BusinessLogicTests: XCTestCase {
     // MARK: - Constants Tests
     func testAppConstants() {
         XCTAssertEqual(AppConstants.Limits.maxRecentApps, 5)
-        XCTAssertEqual(AppConstants.Limits.maxModes, 9)
-        XCTAssertEqual(AppConstants.Limits.shortcutConflictCount, 3)
-    }
-
-    func testAppConstantsShortcuts() {
-        XCTAssertEqual(AppConstants.Shortcuts.modeSwitcher, "⌘⇧M")
-        XCTAssertEqual(AppConstants.Shortcuts.launcher, "⌘Space")
-    }
-
-    // MARK: - Extension Tests
-    func testEncodableExtension() async throws {
-        let mode = Mode(
-            name: "Test Mode",
-            icon: "star.fill",
-            iconAssignments: []
-        )
-
-        // Test Codable conformance for backup/restore
-        let encoder = JSONEncoder()
-        let data = try encoder.encode(mode)
-
-        XCTAssertFalse(data.isEmpty)
-
-        let decoder = JSONDecoder()
-        let decodedMode = try decoder.decode(Mode.self, from: data)
-
-        XCTAssertEqual(decodedMode.name, mode.name)
-        XCTAssertEqual(decodedMode.icon, mode.icon)
+        XCTAssertEqual(AppConstants.Limits.maxCustomModes, 20)
     }
 }

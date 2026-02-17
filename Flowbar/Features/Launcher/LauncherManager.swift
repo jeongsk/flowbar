@@ -1,6 +1,8 @@
 import Foundation
 import Cocoa
+import SwiftUI
 import SwiftData
+import Carbon
 
 // MARK: - App Info
 struct AppInfo: Identifiable, Hashable {
@@ -41,7 +43,9 @@ final class LauncherManager: ObservableObject {
     }
 
     deinit {
-        removeLauncherShortcut()
+        Task { @MainActor in
+            removeLauncherShortcut()
+        }
     }
 
     // MARK: - App Loading
@@ -56,11 +60,12 @@ final class LauncherManager: ObservableObject {
         ]
 
         for directoryPath in applicationDirectories {
-            guard let directoryURL = URL(string: directoryPath)?.expandingTildeInPath else { continue }
+            let expandedPath = (directoryPath as NSString).expandingTildeInPath
+            let directoryURL = URL(fileURLWithPath: expandedPath)
 
             guard let enumerator = FileManager.default.enumerator(
                 at: directoryURL,
-                includingPropertiesForKeys: [.isApplicationKey, .localizedNameFileIdentifier, .fileTypeIdentifierKey],
+                includingPropertiesForKeys: [.isApplicationKey],
                 options: [.skipsHiddenFiles]
             ) else {
                 continue
@@ -87,7 +92,7 @@ final class LauncherManager: ObservableObject {
             return nil
         }
 
-        let icon = bundle?.icon ?? NSImage(named: "Application")
+        let icon = NSWorkspace.shared.icon(forFile: url.path)
 
         return AppInfo(
             id: bundleIdentifier,
@@ -261,14 +266,16 @@ final class LauncherManager: ObservableObject {
     }
 
     private func markAppAsLaunched(_ app: AppInfo) {
+        let bundleID = app.bundleIdentifier
         let descriptor = FetchDescriptor<AppAssignment>(
-            predicate: #Predicate { $0.bundleIdentifier == app.bundleIdentifier }
+            predicate: #Predicate { $0.bundleIdentifier == bundleID }
         )
 
         do {
             let results = try modelContext.fetch(descriptor)
-            let assignment = if let existing = results.first {
-                existing
+            let assignment: AppAssignment
+            if let existing = results.first {
+                assignment = existing
             } else {
                 let newAssignment = AppAssignment(
                     bundleIdentifier: app.bundleIdentifier,
@@ -276,7 +283,7 @@ final class LauncherManager: ObservableObject {
                     isRecent: true
                 )
                 modelContext.insert(newAssignment)
-                newAssignment
+                assignment = newAssignment
             }
 
             assignment.markAsUsed()

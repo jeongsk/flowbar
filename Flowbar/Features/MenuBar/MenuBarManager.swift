@@ -45,9 +45,7 @@ final class MenuBarManager: ObservableObject {
 
     // MARK: - Accessibility Permission
     func checkAccessibilityPermission() -> Bool {
-        let options: [String: Bool] = [
-            kAXTrustedCheckOptionPrompt.takeLog.takeUnretainedValue() as String: false
-        ] as CFDictionary
+        let options = [kAXTrustedCheckOptionPrompt.takeRetainedValue() as String: false] as CFDictionary
 
         let accessEnabled = AXIsProcessTrustedWithOptions(options)
 
@@ -64,9 +62,7 @@ final class MenuBarManager: ObservableObject {
     }
 
     func requestAccessibilityPermission() {
-        let options: [String: Bool] = [
-            kAXTrustedCheckOptionPrompt.takeLog.takeUnretainedValue() as String: true
-        ] as CFDictionary
+        let options = [kAXTrustedCheckOptionPrompt.takeRetainedValue() as String: true] as CFDictionary
 
         _ = AXIsProcessTrustedWithOptions(options)
     }
@@ -106,7 +102,7 @@ final class MenuBarManager: ObservableObject {
         }
 
         // Get all children of menu bar
-        var children: CFArray?
+        var children: CFTypeRef?
         let result = AXUIElementCopyAttributeValue(
             menuBarElement,
             kAXChildrenAttribute as CFString,
@@ -138,7 +134,7 @@ final class MenuBarManager: ObservableObject {
 
     private func getMenuBarElement() -> AXUIElement? {
         // Get the focused application
-        var focusedApp: AnyObject?
+        var focusedApp: CFTypeRef?
         let focusedResult = AXUIElementCopyAttributeValue(
             systemWideElement,
             kAXFocusedApplicationAttribute as CFString,
@@ -146,42 +142,44 @@ final class MenuBarManager: ObservableObject {
         )
 
         guard focusedResult == .success,
-              let focusedAppElement = focusedApp as? AXUIElement else {
+              let focusedAppElement = focusedApp else {
             return nil
         }
 
         // Get menu bar of focused app
-        var menuBar: AnyObject?
+        var menuBar: CFTypeRef?
         let menuBarResult = AXUIElementCopyAttributeValue(
-            focusedAppElement,
+            focusedAppElement as! AXUIElement,
             kAXMenuBarAttribute as CFString,
             &menuBar
         )
 
         guard menuBarResult == .success,
-              let menuBarElement = menuBar as? AXUIElement else {
+              let menuBarElement = menuBar else {
             return nil
         }
 
-        return menuBarElement
+        return (menuBarElement as! AXUIElement)
     }
 
     private func extractIconInfo(from element: AXUIElement, index: Int) -> MenuBarIcon? {
         // Get position
-        var position: AnyObject?
-        let positionResult = AXUIElementCopyAttributeValue(
+        var position: CFTypeRef?
+        _ = AXUIElementCopyAttributeValue(
             element,
             kAXPositionAttribute as CFString,
             &position
         )
 
         var point = CGPoint.zero
-        if let positionValue = position as? [String: CGFloat],
-           let x = positionValue["x"],
-           let y = positionValue["y"] {
-            point = CGPoint(x: x, y: y)
-        } else if let positionValue = position as? AXValue {
-            AXValueGetValue(positionValue, .cgPoint, &point)
+        if let positionValue = position {
+            if let dict = positionValue as? [String: CGFloat],
+               let x = dict["x"],
+               let y = dict["y"] {
+                point = CGPoint(x: x, y: y)
+            } else {
+                AXValueGetValue(positionValue as! AXValue, .cgPoint, &point)
+            }
         }
 
         // Get role and title
@@ -206,15 +204,15 @@ final class MenuBarManager: ObservableObject {
 
         if AXUIElementCopyAttributeValue(
             element,
-            kAXApplicationAttribute as CFString,
+            kAXParentAttribute as CFString,
             &bundleID
         ) == .success,
-           let appElement = bundleID as? AXUIElement {
-
+           let appElement = bundleID {
+            // Get the parent application
             var appBundleID: AnyObject?
             if AXUIElementCopyAttributeValue(
-                appElement,
-                kAXBundleIdentifierAttribute as CFString,
+                appElement as! AXUIElement,
+                kAXIdentifierAttribute as CFString,
                 &appBundleID
             ) == .success,
                let bundleIDString = appBundleID as? String {
@@ -316,15 +314,11 @@ final class MenuBarManager: ObservableObject {
             AXObserverGetRunLoopSource(observer),
             .defaultMode
         )
-
-        // Start monitoring
-        AXObserverRunLoopSource(observer, CFRunLoopGetCurrent())
-        CFRunLoopRunInMode(.defaultMode, 0, true)
     }
 
     func stopMonitoring() {
         if let observer = axObserver {
-            CFRunLoopRemoveObserver(CFRunLoopGetCurrent(), observer, .commonModes)
+            CFRunLoopRemoveSource(CFRunLoopGetCurrent(), AXObserverGetRunLoopSource(observer), .defaultMode)
             axObserver = nil
         }
     }

@@ -107,9 +107,15 @@
   },
   "hotPaths": [
     {
+      "path": "FlowbarTests/BusinessLogicTests.swift",
+      "accessCount": 30,
+      "lastAccessed": 1771324648524,
+      "type": "file"
+    },
+    {
       "path": "Flowbar/Flowbar.xcodeproj/project.pbxproj",
-      "accessCount": 24,
-      "lastAccessed": 1771247199060,
+      "accessCount": 27,
+      "lastAccessed": 1771319546966,
       "type": "file"
     },
     {
@@ -119,27 +125,111 @@
       "type": "file"
     },
     {
-      "path": "Flowbar/App/AppDelegate.swift",
-      "accessCount": 6,
-      "lastAccessed": 1771242231675,
+      "path": "Flowbar/Core/Utils/OptimizationManager.swift",
+      "accessCount": 19,
+      "lastAccessed": 1771320983710,
       "type": "file"
     },
     {
       "path": "Flowbar/Features/FocusGuard/FocusGuardManager.swift",
-      "accessCount": 6,
-      "lastAccessed": 1771242241179,
+      "accessCount": 16,
+      "lastAccessed": 1771320527747,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Features/MenuBar/MenuBarManager.swift",
+      "accessCount": 15,
+      "lastAccessed": 1771320384962,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Features/Launcher/LauncherManager.swift",
+      "accessCount": 15,
+      "lastAccessed": 1771321030623,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/App/AppDelegate.swift",
+      "accessCount": 14,
+      "lastAccessed": 1771320235572,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Features/Onboarding/OnboardingCoordinator.swift",
+      "accessCount": 14,
+      "lastAccessed": 1771320584949,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Features/ModeSwitcher/ModeManager.swift",
+      "accessCount": 13,
+      "lastAccessed": 1771323723394,
       "type": "file"
     },
     {
       "path": "Flowbar/Core/Persistence/DataController.swift",
+      "accessCount": 11,
+      "lastAccessed": 1771320149092,
+      "type": "file"
+    },
+    {
+      "path": "FlowbarTests/PerformanceTests.swift",
+      "accessCount": 9,
+      "lastAccessed": 1771321938075,
+      "type": "file"
+    },
+    {
+      "path": "FlowbarTests/UITests.swift",
+      "accessCount": 9,
+      "lastAccessed": 1771321962532,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Core/Utils/FeedbackManager.swift",
+      "accessCount": 7,
+      "lastAccessed": 1771321075917,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Shared/Utils/KeyboardShortcut.swift",
+      "accessCount": 6,
+      "lastAccessed": 1771320035478,
+      "type": "file"
+    },
+    {
+      "path": "FlowbarTests/ModelTests.swift",
+      "accessCount": 6,
+      "lastAccessed": 1771321999255,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Core/Models/Mode.swift",
       "accessCount": 5,
-      "lastAccessed": 1771243449855,
+      "lastAccessed": 1771321118280,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Features/Settings/SettingsView.swift",
+      "accessCount": 5,
+      "lastAccessed": 1771321131729,
       "type": "file"
     },
     {
       "path": "Flowbar/Info.plist",
       "accessCount": 4,
       "lastAccessed": 1771244077293,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Core/Animations/FlowbarAnimations.swift",
+      "accessCount": 4,
+      "lastAccessed": 1771319982362,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Core/Models/Preference.swift",
+      "accessCount": 4,
+      "lastAccessed": 1771320738991,
       "type": "file"
     },
     {
@@ -155,30 +245,6 @@
       "type": "file"
     },
     {
-      "path": "Flowbar/Features/MenuBar/MenuBarManager.swift",
-      "accessCount": 3,
-      "lastAccessed": 1771241686755,
-      "type": "file"
-    },
-    {
-      "path": "Flowbar/Features/ModeSwitcher/ModeManager.swift",
-      "accessCount": 3,
-      "lastAccessed": 1771241851876,
-      "type": "file"
-    },
-    {
-      "path": "Flowbar/Features/Launcher/LauncherManager.swift",
-      "accessCount": 3,
-      "lastAccessed": 1771241960437,
-      "type": "file"
-    },
-    {
-      "path": "Flowbar/Features/Onboarding/OnboardingCoordinator.swift",
-      "accessCount": 3,
-      "lastAccessed": 1771242042916,
-      "type": "file"
-    },
-    {
       "path": "README.md",
       "accessCount": 3,
       "lastAccessed": 1771243693946,
@@ -191,27 +257,27 @@
       "type": "file"
     },
     {
+      "path": "Flowbar/Shared/Utils/Constants.swift",
+      "accessCount": 3,
+      "lastAccessed": 1771319885128,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Features/Help/HelpView.swift",
+      "accessCount": 3,
+      "lastAccessed": 1771320608542,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Core/Models/OnboardingState.swift",
+      "accessCount": 3,
+      "lastAccessed": 1771321983007,
+      "type": "file"
+    },
+    {
       "path": "openspec/changes/prd-implementation/design.md",
       "accessCount": 2,
       "lastAccessed": 1771241020384,
-      "type": "file"
-    },
-    {
-      "path": "Flowbar/Core/Animations/FlowbarAnimations.swift",
-      "accessCount": 2,
-      "lastAccessed": 1771243453486,
-      "type": "file"
-    },
-    {
-      "path": "Flowbar/Core/Models/Mode.swift",
-      "accessCount": 2,
-      "lastAccessed": 1771243453519,
-      "type": "file"
-    },
-    {
-      "path": "Flowbar/Core/Models/Preference.swift",
-      "accessCount": 2,
-      "lastAccessed": 1771243453531,
       "type": "file"
     },
     {
@@ -224,6 +290,12 @@
       "path": "RELEASE_NOTES.md",
       "accessCount": 2,
       "lastAccessed": 1771243693994,
+      "type": "file"
+    },
+    {
+      "path": "Flowbar/Shared/Utils/Extensions.swift",
+      "accessCount": 2,
+      "lastAccessed": 1771319966884,
       "type": "file"
     },
     {
@@ -275,12 +347,6 @@
       "type": "file"
     },
     {
-      "path": "Flowbar/Core/Models/OnboardingState.swift",
-      "accessCount": 1,
-      "lastAccessed": 1771241147252,
-      "type": "file"
-    },
-    {
       "path": "Flowbar/Core/Models/AppAssignment.swift",
       "accessCount": 1,
       "lastAccessed": 1771241147408,
@@ -299,75 +365,9 @@
       "type": "file"
     },
     {
-      "path": "Flowbar/Shared/Utils/KeyboardShortcut.swift",
-      "accessCount": 1,
-      "lastAccessed": 1771241262222,
-      "type": "file"
-    },
-    {
-      "path": "Flowbar/Shared/Utils/Extensions.swift",
-      "accessCount": 1,
-      "lastAccessed": 1771241262346,
-      "type": "file"
-    },
-    {
-      "path": "Flowbar/Shared/Utils/Constants.swift",
-      "accessCount": 1,
-      "lastAccessed": 1771241262505,
-      "type": "file"
-    },
-    {
-      "path": "Flowbar/Features/Settings/SettingsView.swift",
-      "accessCount": 1,
-      "lastAccessed": 1771242186903,
-      "type": "file"
-    },
-    {
       "path": "Flowbar/Features/FocusGuard/FocusGuardStatusOverlay.swift",
       "accessCount": 1,
       "lastAccessed": 1771242257184,
-      "type": "file"
-    },
-    {
-      "path": "Flowbar/Features/Help/HelpView.swift",
-      "accessCount": 1,
-      "lastAccessed": 1771242300740,
-      "type": "file"
-    },
-    {
-      "path": "FlowbarTests/ModelTests.swift",
-      "accessCount": 1,
-      "lastAccessed": 1771242337421,
-      "type": "file"
-    },
-    {
-      "path": "FlowbarTests/BusinessLogicTests.swift",
-      "accessCount": 1,
-      "lastAccessed": 1771242361269,
-      "type": "file"
-    },
-    {
-      "path": "FlowbarTests/UITests.swift",
-      "accessCount": 1,
-      "lastAccessed": 1771242406251,
-      "type": "file"
-    },
-    {
-      "path": "FlowbarTests/PerformanceTests.swift",
-      "accessCount": 1,
-      "lastAccessed": 1771242431127,
-      "type": "file"
-    },
-    {
-      "path": "Flowbar/Core/Utils/OptimizationManager.swift",
-      "accessCount": 1,
-      "lastAccessed": 1771242482472,
-      "type": "file"
-    },
-    {
-      "path": "Flowbar/Core/Utils/FeedbackManager.swift",
-      "accessCount": 1,
-      "lastAccessed": 1771242537244,
       "type": "file"
     },
     {

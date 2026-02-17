@@ -1,5 +1,7 @@
 import Foundation
 import Cocoa
+import SwiftUI
+import os
 
 // MARK: - Feedback Manager
 @MainActor
@@ -179,7 +181,7 @@ final class FeedbackManager: ObservableObject {
             alert.informativeText = "Would you mind taking a moment to rate your experience?"
             alert.alertStyle = .informational
             alert.addButton(withTitle: "Rate Now")
-            alert.addButton(withTitle("Later")
+            alert.addButton(withTitle: "Later")
             alert.addButton(withTitle: "Don't Ask Again")
 
             let response = alert.runModal()
@@ -290,7 +292,7 @@ final class FeedbackManager: ObservableObject {
 }
 
 // MARK: - Feedback Models
-struct FeedbackCategory: Identifiable {
+struct FeedbackCategory: Identifiable, Hashable {
     let id: String
     let name: String
     let description: String

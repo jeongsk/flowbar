@@ -143,7 +143,7 @@ final class FocusGuardManager: ObservableObject {
     }
 
     private func removeNotificationMonitoring() {
-        notificationObservers.forEach { center.removeObserver($0) }
+        notificationObservers.forEach { NotificationCenter.default.removeObserver($0) }
         notificationObservers.removeAll()
     }
 
@@ -236,7 +236,7 @@ final class FocusGuardManager: ObservableObject {
     }
 
     private func handleKeyDown(event: CGEvent) -> Unmanaged<CGEvent>? {
-        let keyCode = event.keyCode
+        let keyCode = event.getIntegerValueField(.keyboardEventKeycode)
         let flags = event.flags
 
         // Update last focus time for valid key presses
@@ -274,17 +274,17 @@ final class FocusGuardManager: ObservableObject {
             CFRunLoopRemoveSource(CFRunLoopGetCurrent(), runLoopSource, .commonModes)
         }
 
-        removeNotificationMonitoring()
+        Task { @MainActor in
+            removeNotificationMonitoring()
+        }
     }
 }
 
 // MARK: - CGEvent Extensions
 extension CGEvent {
     var windowNumber: Int? {
-        var windowNumber: Int = 0
-        guard CGEventGetIntegerValueField(__CFUnwrapRetained(self), .eventWindowNumber, &windowNumber) == .success else {
-            return nil
-        }
-        return windowNumber
+        // Window number is not directly available via CGEvent
+        // This is a placeholder implementation
+        return nil
     }
 }

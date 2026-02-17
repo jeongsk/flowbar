@@ -1,5 +1,7 @@
 import Foundation
-import os.log
+import SwiftUI
+import SwiftData
+import os
 
 // MARK: - Optimization Manager
 @MainActor
@@ -49,7 +51,7 @@ final class OptimizationManager: ObservableObject {
         }
     }
 
-    private func getCurrentMemoryUsage() -> UInt64 {
+    func getCurrentMemoryUsage() -> UInt64 {
         var info = mach_task_basic_info()
         var count = mach_msg_type_number_t(MemoryLayout<mach_task_basic_info>.size)/4
 
@@ -97,9 +99,9 @@ final class OptimizationManager: ObservableObject {
         if threadsResult == KERN_SUCCESS, let threadsList = threadsList {
             for index in 0..<threadsCount {
                 var threadInfo = thread_basic_info()
-                var threadInfoCount = mach_msg_type_number_t(orientation: ThreadBasicInfo.self)
+                var threadInfoCount = mach_msg_type_number_t(MemoryLayout<thread_basic_info>.size / MemoryLayout<integer_t>.size)
                 let infoResult = withUnsafeMutablePointer(to: &threadInfo) {
-                    $0.withMemoryRebound(to: integer_t.self, capacity: 1) {
+                    $0.withMemoryRebound(to: integer_t.self, capacity: Int(threadInfoCount)) {
                         thread_info(threadsList[Int(index)],
                                  thread_flavor_t(THREAD_BASIC_INFO),
                                  $0,
@@ -117,7 +119,7 @@ final class OptimizationManager: ObservableObject {
                 }
             }
 
-            vm_deallocate(mach_task_self_, vm_address_t(UInt64(bitPattern: threadsList)), vm_size_t(Int(threadsCount) * MemoryLayout<thread_t>.stride))
+            vm_deallocate(mach_task_self_, vm_address_t(bitPattern: threadsList), vm_size_t(Int(threadsCount) * MemoryLayout<thread_t>.stride))
         }
 
         return totalUsageOfCPU / 100.0
@@ -237,8 +239,8 @@ final class OptimizationManager: ObservableObject {
             }
         }
 
-        logger.info("Current memory: \(memoryUsage)")
-        logger.info("Current CPU: \(cpuUsage)")
+        logger.info("Current memory: \(self.memoryUsage)")
+        logger.info("Current CPU: \(self.cpuUsage)")
 
         let leaks = detectMemoryLeaks()
         if !leaks.isEmpty {
@@ -252,7 +254,7 @@ final class OptimizationManager: ObservableObject {
     }
 
     // MARK: - Formatting
-    private func formatBytes(_ bytes: UInt64) -> String {
+    func formatBytes(_ bytes: UInt64) -> String {
         let formatter = ByteCountFormatter()
         formatter.allowedUnits = [.useMB, .useGB]
         formatter.countStyle = .memory
@@ -266,7 +268,7 @@ func measurePerformance<T>(key: String, operation: () throws -> T) rethrows -> T
     let result = try operation()
     let duration = Date().timeIntervalSince(start)
 
-    await MainActor.run {
+    Task { @MainActor in
         OptimizationManager.shared.recordMetric(key, duration: duration)
     }
 
@@ -274,6 +276,7 @@ func measurePerformance<T>(key: String, operation: () throws -> T) rethrows -> T
 }
 
 // MARK: - Memory Leak Detector
+@MainActor
 class MemoryLeakDetector {
     private var snapshots: [String: UInt64] = [:]
 
@@ -358,6 +361,7 @@ struct OptimizationSuggestion {
     }
 }
 
+@MainActor
 class OptimizationAdvisor {
     static func getSuggestions() -> [OptimizationSuggestion] {
         var suggestions: [OptimizationSuggestion] = []

@@ -285,7 +285,7 @@ struct ShortcutCategoryView: View {
                     ForEach(shortcuts, id: \.0) { shortcut, description in
                         HStack {
                             Text(shortcut)
-                                .font(.system(.monospaced))
+                                .font(.system(.body, design: .monospaced))
                                 .fontWeight(.semibold)
                                 .foregroundColor(.accentColor)
 

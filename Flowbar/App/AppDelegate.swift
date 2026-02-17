@@ -2,6 +2,7 @@ import Cocoa
 import SwiftUI
 import SwiftData
 
+@MainActor
 class AppDelegate: NSObject, NSApplicationDelegate {
     var statusItem: NSStatusItem?
     var popover: NSPopover?
@@ -10,6 +11,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // Managers
     private var menuBarManager: MenuBarManager?
     private var modeManager: ModeManager?
+
+    override nonisolated init() {
+        super.init()
+    }
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         // Initialize managers
@@ -28,13 +33,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func setupStatusBar() {
-        statusItem = NSStatusBar.system.statusItem(withLength: NSVariableStatusItemLength)
+        statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
 
         if let button = statusItem?.button {
             // Use SF Symbol for status bar icon
             let config = NSImage.SymbolConfiguration(pointSize: 16, weight: .regular)
-            let image = NSImage(systemSymbolName: "line.3.horizontal.circle.fill", accessibilityDescription: "Flowbar")
-            image?.symbolConfiguration = config
+            let image = NSImage(systemSymbolName: "line.3.horizontal.circle.fill", accessibilityDescription: "Flowbar")?.withSymbolConfiguration(config)
             button.image = image
 
             // Set click action
@@ -47,7 +51,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @objc func statusBarClicked(_ sender: NSStatusBarButton?) {
-        guard let event = NSApp.currentEvent() else { return }
+        guard let event = NSApp.currentEvent else { return }
 
         if event.type == .rightMouseUp {
             showContextMenu(sender: sender)
@@ -121,8 +125,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
               let iconName = mode.icon else { return }
 
         let config = NSImage.SymbolConfiguration(pointSize: 16, weight: .regular)
-        let image = NSImage(systemSymbolName: iconName, accessibilityDescription: mode.name)
-        image?.symbolConfiguration = config
+        let image = NSImage(systemSymbolName: iconName, accessibilityDescription: mode.name)?.withSymbolConfiguration(config)
         button.image = image
     }
 

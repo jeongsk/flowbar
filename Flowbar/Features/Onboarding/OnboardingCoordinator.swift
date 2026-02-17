@@ -1,6 +1,7 @@
 import Foundation
 import SwiftData
 import Cocoa
+import SwiftUI
 
 // MARK: - Onboarding Step
 enum OnboardingStep: String, CaseIterable {
@@ -308,8 +309,8 @@ final class OnboardingCoordinator: ObservableObject {
 
     private func updateOnboardingWindow() {
         // Update window content for current step
-        hostingView?.rootView = OnboardingView()
-            .environmentObject(self)
+        onboardingWindow?.contentView = NSHostingView(rootView: OnboardingView()
+            .environmentObject(self))
     }
 
     private func hideOnboardingWindow() {
@@ -318,7 +319,7 @@ final class OnboardingCoordinator: ObservableObject {
     }
 
     // MARK: - Completion
-    private func completeOnboarding() {
+    func completeOnboarding() {
         currentStep = .complete
         onboardingState?.complete()
         try? modelContext.save()
@@ -372,12 +373,13 @@ final class OnboardingCoordinator: ObservableObject {
         do {
             var preferences = try modelContext.fetch(descriptor)
 
-            let preference = if let existing = preferences.first {
-                existing
+            let preference: Preference
+            if let existing = preferences.first {
+                preference = existing
             } else {
                 let newPref = Preference()
                 modelContext.insert(newPref)
-                newPref
+                preference = newPref
             }
 
             if let launcherShortcut = customShortcuts["launcher"] {
@@ -653,19 +655,19 @@ struct OnboardingView: View {
             VStack(alignment: .leading, spacing: 12) {
                 HStack {
                     Text("⌘⇧M")
-                        .font(.system(.monospaced))
+                        .font(.system(.body, design: .monospaced))
                     Text("Show mode switcher")
                     Spacer()
                 }
                 HStack {
                     Text("⌘⇧1-9")
-                        .font(.system(.monospaced))
+                        .font(.system(.body, design: .monospaced))
                     Text("Switch to mode 1-9")
                     Spacer()
                 }
                 HStack {
                     Text("⌘Space")
-                        .font(.system(.monospaced))
+                        .font(.system(.body, design: .monospaced))
                     Text("Open launcher")
                     Spacer()
                 }
@@ -688,9 +690,4 @@ struct OnboardingView: View {
         }
         .padding()
     }
-}
-
-// MARK: - Notifications
-extension Notification.Name {
-    static let onboardingDidComplete = Notification.Name("onboardingDidComplete")
 }

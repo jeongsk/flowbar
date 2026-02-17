@@ -49,20 +49,20 @@ final class DataController {
 
         do {
             // Fetch all data
-            let modes: [Mode] = modelContext.fetch(FetchDescriptor())
-            let preferences: [Preference] = modelContext.fetch(FetchDescriptor())
-            let onboardingState: [OnboardingState] = modelContext.fetch(FetchDescriptor())
+            let modes = try modelContext.fetch(FetchDescriptor<Mode>())
+            let preferences = try modelContext.fetch(FetchDescriptor<Preference>())
+            let onboardingState = try modelContext.fetch(FetchDescriptor<OnboardingState>())
 
-            // Create backup dictionary
-            let backup: [String: Any] = [
-                "version": AppConstants.version,
-                "timestamp": timestamp,
-                "modes": modes.map { $0.encode() },
-                "preferences": preferences.map { $0.encode() },
-                "onboardingState": onboardingState.map { $0.encode() }
-            ]
+            // Create backup dictionary using Codable
+            let backup = BackupData(
+                version: AppConstants.version,
+                timestamp: timestamp,
+                modes: modes.map { ModeBackup(from: $0) },
+                preferences: preferences.map { PreferenceBackup(from: $0) },
+                onboardingState: onboardingState.map { OnboardingStateBackup(from: $0) }
+            )
 
-            let data = try JSONSerialization.data(withJSONObject: backup, options: .prettyPrinted)
+            let data = try JSONEncoder().encode(backup)
             try data.write(to: backupURL)
 
             print("Backup created at: \(backupURL.path)")
@@ -76,36 +76,43 @@ final class DataController {
     func restoreData(from url: URL) -> Bool {
         do {
             let data = try Data(contentsOf: url)
-            let backup = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-
-            guard let backup = backup else {
-                print("Invalid backup format")
-                return false
-            }
+            let backup = try JSONDecoder().decode(BackupData.self, from: data)
 
             // Clear existing data
             clearAllData()
 
             // Restore data
-            if let modesData = backup["modes"] as? [[String: Any]] {
-                for modeData in modesData {
-                    let mode = Mode(from: modeData)
-                    modelContext.insert(mode)
-                }
+            for modeBackup in backup.modes {
+                let mode = Mode(
+                    name: modeBackup.name,
+                    icon: modeBackup.icon,
+                    isDefault: modeBackup.isDefault,
+                    order: modeBackup.order,
+                    shortcut: modeBackup.shortcut
+                )
+                modelContext.insert(mode)
             }
 
-            if let preferencesData = backup["preferences"] as? [[String: Any]] {
-                for prefData in preferencesData {
-                    let preference = Preference(from: prefData)
-                    modelContext.insert(preference)
-                }
+            for prefBackup in backup.preferences {
+                let preference = Preference(
+                    focusGuardEnabled: prefBackup.focusGuardEnabled,
+                    notificationAutoHideEnabled: prefBackup.notificationAutoHideEnabled,
+                    notificationAutoHideDuration: prefBackup.notificationAutoHideDuration,
+                    launcherShortcut: prefBackup.launcherShortcut,
+                    modeSwitchShortcut: prefBackup.modeSwitchShortcut,
+                    theme: prefBackup.theme,
+                    language: prefBackup.language
+                )
+                modelContext.insert(preference)
             }
 
-            if let onboardingStateData = backup["onboardingState"] as? [[String: Any]] {
-                for stateData in onboardingStateData {
-                    let state = OnboardingState(from: stateData)
-                    modelContext.insert(state)
-                }
+            for stateBackup in backup.onboardingState {
+                let state = OnboardingState(
+                    isComplete: stateBackup.isComplete,
+                    lastStep: stateBackup.lastStep
+                )
+                state.completedDate = stateBackup.completedDate
+                modelContext.insert(state)
             }
 
             try modelContext.save()
@@ -144,7 +151,7 @@ final class DataController {
             return nil
         }
 
-        let sortedBackups = backupFiles.sorted { file1, file2 in
+        var sortedBackups = backupFiles.sorted { file1, file2 in
             let date1 = (try? file1.resourceValues(forKeys: [.creationDateKey]))?.creationDate ?? Date.distantPast
             let date2 = (try? file2.resourceValues(forKeys: [.creationDateKey]))?.creationDate ?? Date.distantPast
             return date1 > date2
@@ -167,13 +174,59 @@ final class DataController {
     }
 }
 
-// MARK: - Model Encoding Extensions
-extension Encodable {
-    func encode() -> [String: Any] {
-        guard let data = try? JSONEncoder().encode(self),
-              let dict = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
-            return [:]
-        }
-        return dict
+// MARK: - Backup Data Structures
+struct BackupData: Codable {
+    let version: String
+    let timestamp: String
+    let modes: [ModeBackup]
+    let preferences: [PreferenceBackup]
+    let onboardingState: [OnboardingStateBackup]
+}
+
+struct ModeBackup: Codable {
+    let name: String
+    let icon: String?
+    let isDefault: Bool
+    let order: Int
+    let shortcut: String?
+
+    init(from mode: Mode) {
+        self.name = mode.name
+        self.icon = mode.icon
+        self.isDefault = mode.isDefault
+        self.order = mode.order
+        self.shortcut = mode.shortcut
+    }
+}
+
+struct PreferenceBackup: Codable {
+    let focusGuardEnabled: Bool
+    let notificationAutoHideEnabled: Bool
+    let notificationAutoHideDuration: TimeInterval
+    let launcherShortcut: String
+    let modeSwitchShortcut: String
+    let theme: String
+    let language: String
+
+    init(from preference: Preference) {
+        self.focusGuardEnabled = preference.focusGuardEnabled
+        self.notificationAutoHideEnabled = preference.notificationAutoHideEnabled
+        self.notificationAutoHideDuration = preference.notificationAutoHideDuration
+        self.launcherShortcut = preference.launcherShortcut
+        self.modeSwitchShortcut = preference.modeSwitchShortcut
+        self.theme = preference.theme
+        self.language = preference.language
+    }
+}
+
+struct OnboardingStateBackup: Codable {
+    let isComplete: Bool
+    let lastStep: String
+    let completedDate: Date?
+
+    init(from state: OnboardingState) {
+        self.isComplete = state.isComplete
+        self.lastStep = state.lastStep
+        self.completedDate = state.completedDate
     }
 }

@@ -784,14 +784,13 @@ struct DNDAppAddView: View {
 
     private func loadRunningApps() {
         let workspace = NSWorkspace.shared
-        if let runningApps = workspace.runningApplications {
-            self.runningApps = runningApps.compactMap { app in
-                guard let bundleID = app.bundleIdentifier,
-                      let localizedName = app.localizedName else {
-                    return nil
-                }
-                return (localizedName, bundleID)
+        let runningApps = workspace.runningApplications
+        self.runningApps = runningApps.compactMap { app in
+            guard let bundleID = app.bundleIdentifier,
+                  let localizedName = app.localizedName else {
+                return nil
             }
+            return (localizedName, bundleID)
         }
     }
 

@@ -3,14 +3,15 @@ import SwiftUI
 
 // MARK: - View Extensions
 extension View {
+    @ViewBuilder
     func conditionalModifier<Content: View>(
         _ condition: Bool,
         transform: (Self) -> Content
     ) -> some View {
         if condition {
-            return transform(self)
+            transform(self)
         } else {
-            return AnyView(self)
+            self
         }
     }
 }

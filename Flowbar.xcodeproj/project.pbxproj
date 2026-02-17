@@ -1,0 +1,707 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A0001 /* FlowbarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0001 /* FlowbarApp.swift */; };
+		1A0002 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0002 /* AppDelegate.swift */; };
+		1A0003 /* FlowbarAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0003 /* FlowbarAnimations.swift */; };
+		1A0004 /* AppAssignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0004 /* AppAssignment.swift */; };
+		1A0005 /* DNDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0005 /* DNDApp.swift */; };
+		1A0006 /* IconAssignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0006 /* IconAssignment.swift */; };
+		1A0007 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0007 /* Mode.swift */; };
+		1A0008 /* OnboardingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0008 /* OnboardingState.swift */; };
+		1A0009 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0009 /* Preference.swift */; };
+		1A0010 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0010 /* DataController.swift */; };
+		1A0011 /* FeedbackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0011 /* FeedbackManager.swift */; };
+		1A0012 /* OptimizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0012 /* OptimizationManager.swift */; };
+		1A0013 /* FocusGuardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0013 /* FocusGuardManager.swift */; };
+		1A0014 /* FocusGuardStatusOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0014 /* FocusGuardStatusOverlay.swift */; };
+		1A0015 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0015 /* HelpView.swift */; };
+		1A0016 /* LauncherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0016 /* LauncherManager.swift */; };
+		1A0017 /* MenuBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0017 /* MenuBarManager.swift */; };
+		1A0018 /* ModeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0018 /* ModeManager.swift */; };
+		1A0019 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0019 /* OnboardingCoordinator.swift */; };
+		1A0020 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0020 /* SettingsView.swift */; };
+		1A0021 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0021 /* Constants.swift */; };
+		1A0022 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0022 /* Extensions.swift */; };
+		1A0023 /* KeyboardShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0023 /* KeyboardShortcut.swift */; };
+		1A0024 /* ModeSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0024 /* ModeSwitcherView.swift */; };
+		1A0025 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B0025 /* Assets.xcassets */; };
+		2A0001 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0001 /* ModelTests.swift */; };
+		2A0002 /* BusinessLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0002 /* BusinessLogicTests.swift */; };
+		2A0003 /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0003 /* PerformanceTests.swift */; };
+		2A0004 /* UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0004 /* UITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2C0001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 200001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F0001;
+			remoteInfo = Flowbar;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1C0001 /* Flowbar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flowbar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B0001 /* FlowbarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowbarApp.swift; sourceTree = "<group>"; };
+		1B0002 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1B0003 /* FlowbarAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowbarAnimations.swift; sourceTree = "<group>"; };
+		1B0004 /* AppAssignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssignment.swift; sourceTree = "<group>"; };
+		1B0005 /* DNDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNDApp.swift; sourceTree = "<group>"; };
+		1B0006 /* IconAssignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconAssignment.swift; sourceTree = "<group>"; };
+		1B0007 /* Mode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
+		1B0008 /* OnboardingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingState.swift; sourceTree = "<group>"; };
+		1B0009 /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
+		1B0010 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		1B0011 /* FeedbackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackManager.swift; sourceTree = "<group>"; };
+		1B0012 /* OptimizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptimizationManager.swift; sourceTree = "<group>"; };
+		1B0013 /* FocusGuardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusGuardManager.swift; sourceTree = "<group>"; };
+		1B0014 /* FocusGuardStatusOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusGuardStatusOverlay.swift; sourceTree = "<group>"; };
+		1B0015 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
+		1B0016 /* LauncherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauncherManager.swift; sourceTree = "<group>"; };
+		1B0017 /* MenuBarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarManager.swift; sourceTree = "<group>"; };
+		1B0018 /* ModeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeManager.swift; sourceTree = "<group>"; };
+		1B0019 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
+		1B0020 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		1B0021 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1B0022 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		1B0023 /* KeyboardShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardShortcut.swift; sourceTree = "<group>"; };
+		1B0024 /* ModeSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSwitcherView.swift; sourceTree = "<group>"; };
+		1B0025 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1B0026 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B0027 /* Flowbar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flowbar.entitlements; sourceTree = "<group>"; };
+		2C0002 /* FlowbarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlowbarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B0001 /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
+		2B0002 /* BusinessLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessLogicTests.swift; sourceTree = "<group>"; };
+		2B0003 /* PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
+		2B0004 /* UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D0001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D0001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1E0001 = {
+			isa = PBXGroup;
+			children = (
+				1E0002 /* Flowbar */,
+				2E0001 /* FlowbarTests */,
+				1E0003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1E0002 /* Flowbar */ = {
+			isa = PBXGroup;
+			children = (
+				1E0004 /* App */,
+				1E0005 /* Core */,
+				1E0006 /* Features */,
+				1E0007 /* Shared */,
+				1E0008 /* Resources */,
+				1B0026 /* Info.plist */,
+				1B0027 /* Flowbar.entitlements */,
+			);
+			path = Flowbar;
+			sourceTree = "<group>";
+		};
+		1E0003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1C0001 /* Flowbar.app */,
+				2C0002 /* FlowbarTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1E0004 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				1B0001 /* FlowbarApp.swift */,
+				1B0002 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		1E0005 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				1E0009 /* Animations */,
+				1E0010 /* Models */,
+				1E0011 /* Persistence */,
+				1E0012 /* Utils */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		1E0006 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				1E0013 /* FocusGuard */,
+				1E0014 /* Help */,
+				1E0015 /* Launcher */,
+				1E0016 /* MenuBar */,
+				1E0017 /* ModeSwitcher */,
+				1E0018 /* Onboarding */,
+				1E0019 /* Settings */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		1E0007 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				1E0020 /* Utils */,
+				1E0021 /* Views */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		1E0008 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1B0025 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1E0009 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				1B0003 /* FlowbarAnimations.swift */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		1E0010 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1B0004 /* AppAssignment.swift */,
+				1B0005 /* DNDApp.swift */,
+				1B0006 /* IconAssignment.swift */,
+				1B0007 /* Mode.swift */,
+				1B0008 /* OnboardingState.swift */,
+				1B0009 /* Preference.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1E0011 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				1B0010 /* DataController.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		1E0012 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1B0011 /* FeedbackManager.swift */,
+				1B0012 /* OptimizationManager.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		1E0013 /* FocusGuard */ = {
+			isa = PBXGroup;
+			children = (
+				1B0013 /* FocusGuardManager.swift */,
+				1B0014 /* FocusGuardStatusOverlay.swift */,
+			);
+			path = FocusGuard;
+			sourceTree = "<group>";
+		};
+		1E0014 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				1B0015 /* HelpView.swift */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
+		1E0015 /* Launcher */ = {
+			isa = PBXGroup;
+			children = (
+				1B0016 /* LauncherManager.swift */,
+			);
+			path = Launcher;
+			sourceTree = "<group>";
+		};
+		1E0016 /* MenuBar */ = {
+			isa = PBXGroup;
+			children = (
+				1B0017 /* MenuBarManager.swift */,
+			);
+			path = MenuBar;
+			sourceTree = "<group>";
+		};
+		1E0017 /* ModeSwitcher */ = {
+			isa = PBXGroup;
+			children = (
+				1B0018 /* ModeManager.swift */,
+			);
+			path = ModeSwitcher;
+			sourceTree = "<group>";
+		};
+		1E0018 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				1B0019 /* OnboardingCoordinator.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		1E0019 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1B0020 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		1E0020 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1B0021 /* Constants.swift */,
+				1B0022 /* Extensions.swift */,
+				1B0023 /* KeyboardShortcut.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		1E0021 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1B0024 /* ModeSwitcherView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2E0001 /* FlowbarTests */ = {
+			isa = PBXGroup;
+			children = (
+				2B0001 /* ModelTests.swift */,
+				2B0002 /* BusinessLogicTests.swift */,
+				2B0003 /* PerformanceTests.swift */,
+				2B0004 /* UITests.swift */,
+			);
+			path = FlowbarTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1F0001 /* Flowbar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F0002 /* Build configuration list for PBXNativeTarget "Flowbar" */;
+			buildPhases = (
+				1F0003 /* Sources */,
+				1D0001 /* Frameworks */,
+				1F0004 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Flowbar;
+			productName = Flowbar;
+			productReference = 1C0001 /* Flowbar.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2F0001 /* FlowbarTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F0002 /* Build configuration list for PBXNativeTarget "FlowbarTests" */;
+			buildPhases = (
+				2F0003 /* Sources */,
+				2D0001 /* Frameworks */,
+				2F0004 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2F0005 /* PBXTargetDependency */,
+			);
+			name = FlowbarTests;
+			productName = FlowbarTests;
+			productReference = 2C0002 /* FlowbarTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		200001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					1F0001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					2F0001 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 1F0001;
+					};
+				};
+			};
+			buildConfigurationList = 200002 /* Build configuration list for PBXProject "Flowbar" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1E0001;
+			productRefGroup = 1E0003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1F0001 /* Flowbar */,
+				2F0001 /* FlowbarTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1F0004 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A0025 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F0004 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1F0003 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A0001 /* FlowbarApp.swift in Sources */,
+				1A0002 /* AppDelegate.swift in Sources */,
+				1A0003 /* FlowbarAnimations.swift in Sources */,
+				1A0004 /* AppAssignment.swift in Sources */,
+				1A0005 /* DNDApp.swift in Sources */,
+				1A0006 /* IconAssignment.swift in Sources */,
+				1A0007 /* Mode.swift in Sources */,
+				1A0008 /* OnboardingState.swift in Sources */,
+				1A0009 /* Preference.swift in Sources */,
+				1A0010 /* DataController.swift in Sources */,
+				1A0011 /* FeedbackManager.swift in Sources */,
+				1A0012 /* OptimizationManager.swift in Sources */,
+				1A0013 /* FocusGuardManager.swift in Sources */,
+				1A0014 /* FocusGuardStatusOverlay.swift in Sources */,
+				1A0015 /* HelpView.swift in Sources */,
+				1A0016 /* LauncherManager.swift in Sources */,
+				1A0017 /* MenuBarManager.swift in Sources */,
+				1A0018 /* ModeManager.swift in Sources */,
+				1A0019 /* OnboardingCoordinator.swift in Sources */,
+				1A0020 /* SettingsView.swift in Sources */,
+				1A0021 /* Constants.swift in Sources */,
+				1A0022 /* Extensions.swift in Sources */,
+				1A0023 /* KeyboardShortcut.swift in Sources */,
+				1A0024 /* ModeSwitcherView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F0003 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A0001 /* ModelTests.swift in Sources */,
+				2A0002 /* BusinessLogicTests.swift in Sources */,
+				2A0003 /* PerformanceTests.swift in Sources */,
+				2A0004 /* UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2F0005 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F0001 /* Flowbar */;
+			targetProxy = 2C0001 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		210001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		210002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		210003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Flowbar/Flowbar.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Flowbar/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.flowbar.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		210004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Flowbar/Flowbar.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Flowbar/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.flowbar.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		220001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.flowbar.app.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flowbar.app/Contents/MacOS/Flowbar";
+			};
+			name = Debug;
+		};
+		220002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.flowbar.app.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flowbar.app/Contents/MacOS/Flowbar";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		200002 /* Build configuration list for PBXProject "Flowbar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				210001 /* Debug */,
+				210002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F0002 /* Build configuration list for PBXNativeTarget "Flowbar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				210003 /* Debug */,
+				210004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2F0002 /* Build configuration list for PBXNativeTarget "FlowbarTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				220001 /* Debug */,
+				220002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 200001 /* Project object */;
+}

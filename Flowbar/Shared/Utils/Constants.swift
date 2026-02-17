@@ -59,7 +59,6 @@ enum FlowbarError: LocalizedError {
 
 // MARK: - Notification Names
 extension Notification.Name {
-    static let modeDidChange = Notification.Name("modeDidChange")
     static let accessibilityPermissionDidChange = Notification.Name("accessibilityPermissionDidChange")
     static let launcherShouldOpen = Notification.Name("launcherShouldOpen")
     static let onboardingDidComplete = Notification.Name("onboardingDidComplete")

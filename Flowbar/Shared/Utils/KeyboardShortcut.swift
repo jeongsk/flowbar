@@ -2,23 +2,23 @@ import Foundation
 import Carbon
 
 // MARK: - Keyboard Shortcut
-struct KeyboardShortcut: Codable, Hashable {
+struct AppKeyboardShortcut: Codable, Hashable {
     let keyCode: UInt32
     let modifiers: UInt32
 
     var description: String {
         var parts: [String] = []
 
-        if modifiers & cmdKey != 0 {
+        if modifiers & UInt32(cmdKey) != 0 {
             parts.append("⌘")
         }
-        if modifiers & optionKey != 0 {
+        if modifiers & UInt32(optionKey) != 0 {
             parts.append("⌥")
         }
-        if modifiers & controlKey != 0 {
+        if modifiers & UInt32(controlKey) != 0 {
             parts.append("⌃")
         }
-        if modifiers & shiftKey != 0 {
+        if modifiers & UInt32(shiftKey) != 0 {
             parts.append("⇧")
         }
 
@@ -28,12 +28,7 @@ struct KeyboardShortcut: Codable, Hashable {
         return parts.joined(separator: "+")
     }
 
-    static let cmdKey: UInt32 = 0x10000000
-    static let optionKey: UInt32 = 0x08000000
-    static let controlKey: UInt32 = 0x04000000
-    static let shiftKey: UInt32 = 0x02000000
-
-    static func from(string: String) -> KeyboardShortcut? {
+    static func from(string: String) -> AppKeyboardShortcut? {
         // TODO: Parse string representation
         return nil
     }
@@ -41,9 +36,9 @@ struct KeyboardShortcut: Codable, Hashable {
 
 // MARK: - Shortcut Recorder
 final class ShortcutRecorder {
-    var callback: ((KeyboardShortcut) -> Void)?
+    var callback: ((AppKeyboardShortcut) -> Void)?
 
-    func startMonitoring(shortcut: KeyboardShortcut) {
+    func startMonitoring(shortcut: AppKeyboardShortcut) {
         // TODO: Implement global keyboard shortcut monitoring
         // This will use CGEvent tap or NSEvent monitoring
     }

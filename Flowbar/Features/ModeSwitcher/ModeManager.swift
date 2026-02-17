@@ -2,6 +2,7 @@ import Foundation
 import SwiftData
 import Cocoa
 import Carbon
+import SwiftUI
 
 // MARK: - Mode Manager
 @MainActor
@@ -19,7 +20,9 @@ final class ModeManager: ObservableObject {
     }
 
     deinit {
-        removeKeyboardShortcuts()
+        Task { @MainActor in
+            removeKeyboardShortcuts()
+        }
     }
 
     // MARK: - Mode CRUD
@@ -73,7 +76,7 @@ final class ModeManager: ObservableObject {
         }
     }
 
-    func createMode(name: String, icon: String?) {
+    func createMode(name: String, icon: String?, iconAssignments: [IconAssignment] = []) {
         guard allModes.count < AppConstants.Limits.maxCustomModes else {
             print("Maximum number of custom modes reached")
             return
@@ -83,7 +86,8 @@ final class ModeManager: ObservableObject {
             name: name,
             icon: icon,
             isDefault: false,
-            order: allModes.count
+            order: allModes.count,
+            iconAssignments: iconAssignments
         )
         modelContext.insert(newMode)
         try? modelContext.save()

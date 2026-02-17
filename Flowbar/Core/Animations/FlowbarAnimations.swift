@@ -196,7 +196,7 @@ struct HoverEffectModifier: ViewModifier {
 
     init(scale: CGFloat = 1.05, brightness: Double = 0.1) {
         self.scaleEffect = scale
-        self.brightnessEffect = brightnessEffect
+        self.brightnessEffect = brightness
     }
 
     func body(content: Content) -> some View {
